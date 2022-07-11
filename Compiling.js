@@ -27,6 +27,7 @@ $(document).ready(function() {
             if($(this).hasClass('active') ) {
                 arrActiveTabs[keyOfElement] = index;
                 INDEX_ActiveTab = index;
+                ProgramsElements[keyOfElement].index_active_tab = index;
                 return;
             }
         })
