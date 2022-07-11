@@ -1,4 +1,4 @@
-// ModalCalcV3-1.js
+// ModalCalc.js
 $(document).ready(function() {
 
     let Iam,
@@ -92,7 +92,6 @@ $(document).ready(function() {
         ProgramsElements.ElementInModal1.MakeLinesInfo();
         PrintLineScores();
         removeClass_Splash();
-        return;
     }
 
 
@@ -117,7 +116,6 @@ $(document).ready(function() {
 
     function PrintLineScores() {
         currentLine.find('.lineoutput-scores').text(ProgramsElements.ElementInModal1.SendLinesScores().toFixed(2) );
-        return;
     }
     //================КОНЕЦ все функции DirectorLine=====================
 
@@ -127,4 +125,4 @@ $(document).ready(function() {
         $('#ElementModal .headeroutput-scores').text(ProgramsElements.ElementInModal1.calcBaseValue().toFixed(2) );
     }
 })
-// END ModalCalcV3-1.js
+// END ModalCalc.js
