@@ -167,5 +167,6 @@ function Reset_ElementObject(currentObject) {
         currentObject.value3 = 0;
         currentObject.goe = 0;
         currentObject.halfPartBonus = 1;
+        currentObject.index_active_tab = 0;
 }
 // END Director.js
