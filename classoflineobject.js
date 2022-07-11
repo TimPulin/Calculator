@@ -83,7 +83,7 @@ class ElementInModal extends Element {
     ResetToZeroLinesInfo() {
         this[`value${this.currentLine_Index + 1}`] = 0;
         this[`name${this.currentLine_Index + 1}`] = '';
-        ProgramsElements.ElementInModal1.linename = '';
+        this.linename = '';
     }
 
     ResetToZeroAllModalInfo() {
