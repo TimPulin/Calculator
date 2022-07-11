@@ -1,4 +1,4 @@
-// MainCalcV3-1.js
+// MainCalc.js
 $(document).ready(function() {
 
     let Iam,
@@ -99,4 +99,4 @@ $(document).ready(function() {
         $('#MainTable').find('.tableoutput-scores').text(CalcFullScores().toFixed(2) );
     }
 })
-// END MainCalcV3-1.js
+// END MainCalc.js
