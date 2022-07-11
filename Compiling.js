@@ -1,15 +1,13 @@
 // Compiling.js
 $(document).ready(function() {
 
-    let Iam,
-        IamModal,
+    let IamModal,
         IamSectionTable;
     let arrTemporaryClass = [];
     let arrTemporaryAble = [];
     let arrTemporaryVal = [];
 
     $('#ElementModal .JS_Save').click(function() {
-        Iam = $(this);
         IamModal = $(this).closest('.JS_Section-Modal');
         IamSectionTable = IamModal.find('.JS_Section-Tables .JS_Section-Table');
         DirectorCompilingConfig()
