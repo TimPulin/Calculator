@@ -15,13 +15,14 @@ $(document).ready(function() {
     })
 
     $('#ElementModal .JS_Save').click(function() {
-        if(ProgramsElements[keyOfElement].index_active_tab == 2) {
+        if(INDEX_ActiveTab == 2) {
             goeOfElement = Calc_GoeOfElement();
         }
         else {
             goeOfElement = 0;
         }
-        SendInfoTo_ElementObject();
+        ProgramsElements.ElementInModal1.SendModalInfo(goeOfElement);
+        // SendInfoTo_ElementObject();
         DirectorMain();
     })
 
@@ -35,13 +36,13 @@ $(document).ready(function() {
         return summ;
     }
 
-    function SendInfoTo_ElementObject() {
-        for(let i = 1; i <= 3; i++) {
-            ProgramsElements[keyOfElement][`name${i}`] = ProgramsElements.ElementInModal1[`name${i}`];
-            ProgramsElements[keyOfElement][`value${i}`] = ProgramsElements.ElementInModal1[`value${i}`];
-            ProgramsElements[keyOfElement].goe = goeOfElement;
-        }
-    }
+    // function SendInfoTo_ElementObject() { ПЕРЕНЕСЕНО В КЛАСС ElementInModal1 В ФУНКЦИЮ SendModalInfo. ЕСЛИ ВСЕ РАБОТАЕТ - УДАЛИТЬ
+    //     for(let i = 1; i <= 3; i++) {
+    //         ProgramsElements[keyOfElement][`name${i}`] = ProgramsElements.ElementInModal1[`name${i}`];
+    //         ProgramsElements[keyOfElement][`value${i}`] = ProgramsElements.ElementInModal1[`value${i}`];
+    //         ProgramsElements[keyOfElement].goe = goeOfElement;
+    //     }
+    // }
 
     $('#ElementModal .JS_Reset').click(function() {
         buttonX.prop('disabled', true).removeClass('active activeColor');
