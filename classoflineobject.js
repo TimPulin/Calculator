@@ -12,6 +12,7 @@ class Element {
         this.value3 = 0
         this.goe = 0
         this.halfPartBonus = 1
+        this.index_active_tab = 0
     }
 
     makeNameOfElement() {
