@@ -183,30 +183,40 @@ jQuery(document).ready(function () {
 
     //блокировка кнопки "V", "F", "C",
     jQuery(document).ready(function() {
-        const BUTTON_PairsSpins = jQuery('#spins .JS_ButtonModal[value="PSp"], #spins .JS_ButtonModal[value="PCoSp"]');
+        const BUTTON_CoSp = jQuery('#spins .JS_ButtonModal[value="CoSp"]');
+        const BUTTON_PCoSp = jQuery('#spins .JS_ButtonModal[value="PCoSp"]');
+        const BUTTON_PSp = jQuery('#spins .JS_ButtonModal[value="PSp"]');
         const BUTTON_Fly = jQuery('#ElementModal .JS_Fly');
         const BUTTON_ChangeLeg = jQuery('#ElementModal .JS_ChangeLeg');
         const BUTTON_V = jQuery('#ElementModal .JS_V');
         let button;
 
-        BUTTON_PairsSpins.click(function() {
+        BUTTON_PSp.click(function() {
             [BUTTON_Fly, BUTTON_ChangeLeg, BUTTON_V].map(function(item) {
                 item.prop('disabled', true);
                 item.removeClass('active activeColor');
             })
         })
 
-        jQuery('#spins .JS_ButtonModal').not(BUTTON_PairsSpins).click(function() {
+        BUTTON_PCoSp.click(function() {
+            [BUTTON_Fly, BUTTON_ChangeLeg].map(function(item) {
+                item.prop('disabled', true);
+                item.removeClass('active activeColor');
+            })
+            BUTTON_V.prop('disabled', false)
+        })
+
+        jQuery('#spins .JS_ButtonModal').not(BUTTON_PSp).not(BUTTON_PCoSp).click(function() {
             [BUTTON_Fly, BUTTON_ChangeLeg].map(function(item) {
                 item.prop('disabled', false);
             })
         })
 
-        jQuery('#spins .JS_ButtonModal[value="CoSp"]').click(function() {
+         BUTTON_CoSp.click(function() {
             BUTTON_V.prop('disabled', false);
         })
 
-        jQuery('#spins .JS_ButtonModal:not(.JS_ButtonModal[value="CoSp"])').not(BUTTON_PairsSpins).click(function() {
+        jQuery('#spins .JS_ButtonModal').not(BUTTON_PCoSp).not(BUTTON_CoSp).click(function() {
             if( !BUTTON_Fly.hasClass('active') && !BUTTON_ChangeLeg.hasClass('active') ) {
                 BUTTON_V.prop('disabled', true);
                 BUTTON_V.removeClass('active activeColor');
@@ -215,7 +225,7 @@ jQuery(document).ready(function () {
 
         jQuery('#ElementModal .JS_Fly, #ElementModal .JS_ChangeLeg').click(function() {
             button = jQuery(this).closest('.JS_Section-El').find('.JS_Name');
-            if(BUTTON_Fly.hasClass('active') || BUTTON_ChangeLeg.hasClass('active') || button.val() == 'CoSp' ) { 
+            if(BUTTON_Fly.hasClass('active') || BUTTON_ChangeLeg.hasClass('active') || button.val() == 'CoSp' ) {
                 BUTTON_V.prop('disabled', false);
             } else {
                 BUTTON_V.prop('disabled', true);
