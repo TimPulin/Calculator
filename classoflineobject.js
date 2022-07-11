@@ -95,8 +95,24 @@ class ElementInModal extends Element {
         }
     }
 
+    GetInfoFromElementObject() {
+        for(let i = 1; i <= 3; i++) {
+            this[`name${i}`] = ProgramsElements[keyOfElement][`name${i}`];
+            this[`value${i}`] = ProgramsElements[keyOfElement][`value${i}`];
+        }
+    }
+
     SendLinesScores() {
         return this[`value${this.currentLine_Index + 1}`]
+    }
+
+    SendModalInfo(goe) {
+        for(let i = 1; i <= 3; i++) {
+            ProgramsElements[keyOfElement][`name${i}`] = this[`name${i}`];
+            ProgramsElements[keyOfElement][`value${i}`] = this[`value${i}`];
+            ProgramsElements[keyOfElement]['goe'] = goe;
+            ProgramsElements[keyOfElement]['index_active_tab'] = INDEX_ActiveTab;
+        }
     }
 }// END class ElementInModal{}
 
