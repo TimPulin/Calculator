@@ -25,7 +25,6 @@ function GetID(here) {
 
 function MakeKeyOfElement() {
     keyOfElement = `Element${ID+1}`;
-    // console.log(keyOfElement)
 }
 
 const BUTTON_EU = $('#jumps .JS_ButtonModal[value="Eu"]'),
