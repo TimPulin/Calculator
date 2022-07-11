@@ -59,8 +59,9 @@ $(document).ready(function() {
     }) //=============================КОНЕЦ перенос информации с экрана выбора значения атрибута элемента
 
     $('#ElementModal .JS_Fly, #ElementModal .JS_ChangeLeg').click(function() {
+        let button = jQuery(this).closest('.JS_Section-El').find('.JS_Name');
         Iam = $(this);
-        if(!$('#ElementModal .JS_Fly').hasClass('active') && !$('#ElementModal .JS_ChangeLeg').hasClass('active') ) {
+        if(!$('#ElementModal .JS_Fly').hasClass('active') && !$('#ElementModal .JS_ChangeLeg').hasClass('active') && button.val() != 'CoSp' ) {
             $('#ElementModal .JS_V').removeClass('active activeColor');
         }
         DirectorModal();
