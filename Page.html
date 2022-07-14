@@ -8,8 +8,8 @@
 		<!-- Bootstrap CSS -->
 		<!--<link rel="stylesheet" href="https://calculatorfs.ru/css/bootstrap.min.css">-->
 		<link rel="stylesheet" href="../bootstrap.min.css">
-		<link rel="stylesheet" href="style.css?version=4">
-		<link rel="stylesheet" href="style-calc.css?version=4">
+		<link rel="stylesheet" href="style.css?version=5">
+		<link rel="stylesheet" href="style-calc.css?version=6">
 
 	</head>
 	<body>
@@ -106,6 +106,71 @@
 						</tr>
 					</table>
 				</div><!--edn steps-->
+				<!--=======================lifts========================-->
+				<div class="JS_Section" id="lifts">
+					<div class="header-box text-center">
+						Поддержки
+					</div>
+					<table class="table">
+						<tr>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="1Li"></td>
+							<td colspan="2"><input type="button" class="JS_ButtonModal buttonGuideBasic" value="2Li"></td>
+							<td colspan="2"><input type="button" class="JS_ButtonModal buttonGuideBasic" value="3Li"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="4Li"></td>
+						</tr>
+						<tr>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="5SLi"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="5TLi"></td>
+							<td colspan="2"><input type="button" class="JS_ButtonModal buttonGuideBasic" value="5BLi"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="5ALi"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="5RLi"></td>
+						</tr>
+					</table>
+				</div><!--edn lifts-->
+				<!--=======================twists========================-->
+				<div class="JS_Section " id="twists">
+					<div class="header-box text-center">
+						Подкрутки
+					</div>
+					<table class="table">
+						<tr>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="1Tw"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="2Tw"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="3Tw"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="4Tw"></td>
+						</tr>
+					</table>
+				</div><!--edn twists-->
+				<!--=======================throwjumps========================-->
+				<div class="JS_Section " id="throwjumps">
+					<div class="header-box text-center">
+						Выбросы
+					</div>
+					<table class="table">
+						<tr>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="TTh"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="STh"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="LoTh"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="FTh"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="LzTh"></td>
+						</tr>
+					</table>
+				</div><!--edn throwjumps-->
+				<!--=======================deathspirals========================-->
+				<div class="JS_Section " id="deathspirals">
+					<div class="header-box text-center">
+						Тодесы
+					</div>
+					<table class="table">
+						<tr>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="BiDs"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="FiDs"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="BoDs"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="FoDs"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="PiF"></td>
+						</tr>
+					</table>
+				</div><!--end deathspirals-->
 
 			</div><!--end header-->
 			<div class="mod-body JS_Section-Tables tabCalc-wrap">
@@ -194,16 +259,77 @@
 
 								</table><!--end table jumps-->
 							</div>
+							<!--========================lifts========================-->
+							<div class="tabCalc-content">
+								<table class="table JS_Section-Table">
+									<tr class="JS_Section-El active splash">
+										<td ><input type="button" class="JS_Button JS_Name  buttonFlat" name="lifts" value="элемент"></td>
+										<td><input type="button" class="JS_Button JS_Level  buttonFlat" name="levels" value="B"></td>
+										<td ><output class="lineoutput-scores">0.00</output></td>
+									</tr>
+								</table><!--end table lifts-->
+							</div>
+							<!--============================end lifts=====================================-->
+							<!--========================twists========================-->
+							<div class="tabCalc-content">
+								<table class="table JS_Section-Table">
+									<tr class="JS_Section-El active splash">
+										<td ><input type="button" class="JS_Button JS_Name  buttonFlat" name="twists" value="элемент"></td>
+										<td><input type="button" class="JS_Button JS_Level  buttonFlat" name="levels" value="B"></td>
+										<td>
+											<input type="button" class="JS_Button JS_Galka  buttonFlat buttonGalka" value="<<">
+										</td>
+										<td ><output class="lineoutput-scores">0.00</output></td>
+									</tr>
+								</table><!--end table twists-->
+							</div>
+							<!--============================end twists=====================================-->
+							<!--========================throwjumps========================-->
+							<div class="tabCalc-content">
+								<table class="table JS_Section-Table">
+									<tr class="JS_Section-El active splash">
+										<td><input type="button" class="JS_Button JS_Rotation  buttonFlat" name="rotations" value="1"></td>
+										<td ><input type="button" class="JS_Button JS_Name  buttonFlat" name="throwjumps" value="элемент"></td>
+										<td>
+											<input type="button" class="JS_Button JS_Galka  buttonFlat buttonGalka" value="q">
+											<input type="button" class="JS_Button JS_Galka  buttonFlat buttonGalka" value="<">
+											<input type="button" class="JS_Button JS_Galka  buttonFlat buttonGalka" value="<<">
+										</td>
+										<td ><output class="lineoutput-scores">0.00</output></td>
+									</tr>
+								</table><!--end table twists-->
+							</div>
+							<!--============================end throwjumps=====================================-->
+							<!--========================deathspirals========================-->
+							<div class="tabCalc-content">
+								<table class="table JS_Section-Table">
+									<tr class="JS_Section-El active splash">
+										<td ><input type="button" class="JS_Button JS_Name  buttonFlat" name="deathspirals" value="элемент"></td>
+										<td><input type="button" class="JS_Button JS_Level  buttonFlat" name="levels" value="B"></td>
+										<td ><output class="lineoutput-scores">0.00</output></td>
+									</tr>
+								</table><!--end table twists-->
+							</div>
+							<!--============================end deathspirals=====================================-->
 						</div><!-- end wrap-tables-->
-						<div class="tabCalc-links">
-							<button class="tabCalc-link" value="Дорожка">Дорожка</button>
-							<button class="tabCalc-link" value="Вращение">Вращение</button>
-							<button class="tabCalc-link active" value="Прыжок">Прыжок</button>
+						<div class="container-links">
+							<button class="gallery_arrow JS_Gallery-Control">&#9664;</button>
+
+							<div class="tabCalc-links JS_Gallery-Window">
+								<button class="tabCalc-link JS_Gallery-Tab" id="tab" value="Дорожка">Дорожка</button>
+								<button class="tabCalc-link JS_Gallery-Tab" value="Вращение">Вращение</button>
+								<button class="tabCalc-link JS_Gallery-Tab active" value="Прыжок">Прыжок</button>
+								<button class="tabCalc-link JS_Gallery-Tab" value="Поддержки">Поддержка</button>
+								<button class="tabCalc-link JS_Gallery-Tab" value="Подкрутки">Подкрутка</button>
+								<button class="tabCalc-link JS_Gallery-Tab" value="Выбросы">Выброс</button>
+								<button class="tabCalc-link JS_Gallery-Tab" value="Тодесы">Тодес</button>
+							</div>
+							<button class="gallery_arrow JS_Gallery-Control">&#9654;</button>
 						</div>
 			</div><!--end mod-body-->
 			<div class="modal-footer">
-				<button class="JS_Reset buttonFlat">Сброс</button>
-				<button class="JS_Save buttonFlat">Сохранить</button>
+				<button class="JS_Reset buttonFlat buttonReset">Сброс</button>
+				<button class="JS_Save buttonFlat buttonSave">Сохранить</button>
 			</div>
 
          </div><!--end content-->
@@ -352,7 +478,6 @@
 					<tr>
 						<td colspan="4" class="pl-0">	<button class="JS_Reset buttonFlat float-left">Сброс</button></td>
 						<td><output class="tableoutput-scores">0.00</output></td>
-
 					</tr>
 				</table>
 
@@ -410,5 +535,6 @@
 		<script src="Compiling.js?version=3"></script>
 		<script src="MainCalc.js?version=4"></script>
 		<script src="Set.js"></script>
+		<script src="GalleryControl.js"></script>
 		<script src="listofvalue.js?version=2"></script>
 </body>
