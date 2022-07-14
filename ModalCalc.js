@@ -47,6 +47,9 @@ $(document).ready(function() {
                 if (Val_ButtonModal == 'Eu'){
                     BUTTON_ROTATION.val(1);
                 }
+                if (Val_ButtonModal == 'PiF'){
+                    BUTTON_DEATHSPIRALLEVEL.val(1);
+                }
                 else if(Val_ButtonModal == 'ChSq') {
                     BUTTON_STEPLEVEL.val(1);
                 }
