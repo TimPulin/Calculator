@@ -4,6 +4,7 @@ body{
     font-size: 18px;
 }
 
+button { outline: none !important; }
 /*работа с таблицами*/
 @media (max-width:575px) {
     /*.table{font-size: 15px !important;}*/
