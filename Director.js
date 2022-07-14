@@ -32,6 +32,7 @@ const BUTTON_EU = $('#jumps .JS_ButtonModal[value="Eu"]'),
       BUTTON_ROTATION = $('#ElementModal .JS_Section-Tables .JS_Section-Table:eq(2) .JS_Section-El:eq(1) .JS_Rotation'),
       BUTTON_CHSQ = $('#steps .JS_ButtonModal[value="ChSq"]'),
       BUTTON_STEPLEVEL = $('#ElementModal .JS_Section-Tables .JS_Section-Table:eq(0) .JS_Level');
+      BUTTON_DEATHSPIRALLEVEL = $('#ElementModal .JS_Section-Tables .JS_Section-Table:eq(6) .JS_Level');
 
 
 function ResetModal(Iam) {
