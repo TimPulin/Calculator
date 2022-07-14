@@ -231,7 +231,7 @@ jQuery(document).ready(function () {
                 BUTTON_V.prop('disabled', true);
             }
         })
-    }) //КОНЕЦ блокировка кнопки "V", "F", "C", "V"
+    }) //КОНЕЦ блокировка кнопки "V", "F", "C"
 
     jQuery(document).ready(function() {
         let amount, //переменная используется для кнопок "добавить/удалить прыжок" и кнопки "Eu"
@@ -272,18 +272,6 @@ jQuery(document).ready(function () {
                LockBTN_AddJump();
                 BTN_RemoveJump.prop('disabled', false);
             })
-
-             //блокировка/разблокировка кнопки "добавить прыжок" в зависимости от кнопки "A"
-             // BUTTON_A.click(function() {
-             //     if(Index_ActiveSection == 1) {
-             //         if(amount == 3) {
-             //             BTN_RemoveJump.trigger('click');
-             //         }
-             //         LockBTN_AddJump();
-             //     }else {
-             //         UnlockBTN_AddJump();
-             //    }
-             //}) //КОНЕЦ блокировка/разблокировка кнопки "добавить прыжок" в зависимости от кнопки "A"
 
             function CheckAmountLinesHide() {
                 amount = jQuery(Iam).closest('.JS_Section-Table').find('.JS_Section-El.active').length;
@@ -351,13 +339,23 @@ jQuery(document).ready(function () {
                 }
             }) //КОНЕЦ блокировка/разблокировка кнопки "JS_Rotation"
 
-            //блокировка/разблокировка кнопки "JS_Level" в зависимости от кнопки "StSq"
-            BUTTON_CHSQ.click(function() {
-                BUTTON_STEPLEVEL.prop('disabled', true);
-            })
-            jQuery('#steps .JS_ButtonModal[value="StSq"]').click(function() {
-                 BUTTON_STEPLEVEL.prop('disabled', false);
-            }) //КОНЕЦ блокировка/разблокировка кнопки "JS_Level" в зависимости от кнопки "StSq"
+            //блокировка/разблокировка кнопки "JS_Level"
+            jQuery(document).ready(function() {
+                let button;
+
+                jQuery('.JS_Name').click(function() {
+                    button = jQuery(this).closest('.JS_Section-El').find('.JS_Level');
+                })
+
+                jQuery('.JS_ButtonModal[value="ChSq"], .JS_ButtonModal[value="PiF"]').click(function() {
+                    button.prop('disabled', true);
+                })
+
+                jQuery('.JS_ButtonModal[value="StSq"], #deathspirals .JS_ButtonModal:not(.JS_ButtonModal[value="PiF"]) ').click(function() {
+                    button.prop('disabled', false);
+                })
+            }) //==КОНЕЦ блокировка/разблокировка кнопки "JS_Level"
+
         }) //====================КОНЕЦ блокировка/разблокировка кнопок в секции "прыжки"===========
     })
 }) //======================КОНЕЦ Блокировка/Разблокировка кнопок===================================
