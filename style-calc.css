@@ -136,14 +136,13 @@ animation: splash 2s;
 /*f3f4f8   dee2e6*/
 /*==========================стили заклдок в модальном окне==============*/
 .tabCalc-links {
-    border: 1px solid black;
     display: flex;
     font-size: 0;
     padding-top: 0px;
     margin:0;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
-    scrollbar-width: none;
+    scrollbar-width: thin;
 }
 
 .tabCalc-links button {
@@ -152,32 +151,32 @@ animation: splash 2s;
     margin-top: 0px;
     margin-bottom: 10px;
     background-color: inherit;
-    border: 2px solid #ccc;
-    border-radius: 10px 10px 50px 10px;
+    border: 1px solid #ccc;
+    border-radius: 50px 0 50px 5px;
     box-sizing: border-box;
-    outline: none;
     cursor: pointer;
     padding: 5px 20px;
-	transition: 0.3s;
+	transition-duration: 0.3s;
+    transition-property: background-color;
 }
 @media (max-width:575px) {
     .tabCalc-links button{
         font-weight:500;
-        padding: 2px 6px;
+        padding: 5px 6px;
     }
 }
 .tabCalc-links button.active{
     background-color:#f3f4f8;
-    border: 2px solid #f3f4f8;
-    border-radius: 50px 0 50px 5px
+    border: 1px solid #f3f4f8;
+    border-radius: 50px 0 50px 5px;
 }
 
-.container-links {
+.gallery-container {
     display: flex;
     align-items: center;
     padding: 0 3px;
 }
-.gallery_arrow {
+.gallery-arrow {
     font-size: 18px;
     font-weight:500;
     padding: 5px 10px;
