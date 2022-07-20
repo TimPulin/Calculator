@@ -9,7 +9,7 @@
 		<!--<link rel="stylesheet" href="https://calculatorfs.ru/css/bootstrap.min.css">-->
 		<link rel="stylesheet" href="../bootstrap.min.css">
 		<link rel="stylesheet" href="style.css?version=5">
-		<link rel="stylesheet" href="style-calc.css?version=6">
+		<link rel="stylesheet" href="style-calc.css?version=7">
 
 	</head>
 	<body>
@@ -148,6 +148,7 @@
 					</div>
 					<table class="table">
 						<tr>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="ATh"></td>
 							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="TTh"></td>
 							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="STh"></td>
 							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="LoTh"></td>
@@ -312,19 +313,19 @@
 							</div>
 							<!--============================end deathspirals=====================================-->
 						</div><!-- end wrap-tables-->
-						<div class="container-links">
-							<button class="gallery_arrow JS_Gallery-Control">&#9664;</button>
+						<div class="gallery-container">
+							<button class="gallery-arrow JS_Gallery-ControlButton" id="ControlButton_Left">&#9664;</button>
 
 							<div class="tabCalc-links JS_Gallery-Window">
-								<button class="tabCalc-link JS_Gallery-Tab" id="tab" value="Дорожка">Дорожка</button>
-								<button class="tabCalc-link JS_Gallery-Tab" value="Вращение">Вращение</button>
-								<button class="tabCalc-link JS_Gallery-Tab active" value="Прыжок">Прыжок</button>
-								<button class="tabCalc-link JS_Gallery-Tab" value="Поддержки">Поддержка</button>
-								<button class="tabCalc-link JS_Gallery-Tab" value="Подкрутки">Подкрутка</button>
-								<button class="tabCalc-link JS_Gallery-Tab" value="Выбросы">Выброс</button>
-								<button class="tabCalc-link JS_Gallery-Tab" value="Тодесы">Тодес</button>
+								<button class="tabCalc-link JS_Gallery-Item" value="Дорожка">Дорожка</button>
+								<button class="tabCalc-link JS_Gallery-Item" value="Вращение">Вращение</button>
+								<button class="tabCalc-link JS_Gallery-Item active" value="Прыжок">Прыжок</button>
+								<button class="tabCalc-link JS_Gallery-Item" value="Поддержка">Поддержка</button>
+								<button class="tabCalc-link JS_Gallery-Item" value="Подкрутка">Подкрутка</button>
+								<button class="tabCalc-link JS_Gallery-Item" value="Выброс">Выброс</button>
+								<button class="tabCalc-link JS_Gallery-Item" value="Тодес">Тодес</button>
 							</div>
-							<button class="gallery_arrow JS_Gallery-Control">&#9654;</button>
+							<button class="gallery-arrow JS_Gallery-ControlButton" id="ControlButton_Right">&#9654;</button>
 						</div>
 			</div><!--end mod-body-->
 			<div class="modal-footer">
@@ -535,6 +536,7 @@
 		<script src="Compiling.js?version=3"></script>
 		<script src="MainCalc.js?version=4"></script>
 		<script src="Set.js"></script>
-		<script src="GalleryControl.js"></script>
+		<!-- <script src="GalleryControl.js"></script> -->
+		<script src="GalleryControlObject.js"></script>
 		<script src="listofvalue.js?version=2"></script>
-</body>
+ </body>
