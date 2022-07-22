@@ -1,35 +1,35 @@
 // GalleryControl.js
-$(document).ready(function() {
+jQuery(document).ready(function() {
     let colorActve = '#ea84ff',
         colorRegular = '#f3f4f8';
 
     // изменение цвета кнопок прокрутки
-    $(document).ready(function() {
-        $('.JS_Gallery-ControlButton').on('touchstart mousedown', function() {
-            $(this).css('background-color', colorActve);
+    jQuery(document).ready(function() {
+        jQuery('.JS_Gallery-ControlButton').on('touchstart mousedown', function() {
+            jQuery(this).css('background-color', colorActve);
         })
-        $('.JS_Gallery-ControlButton').on('touchend mouseup', function() {
-            $(this).css('background-color', colorRegular);
+        jQuery('.JS_Gallery-ControlButton').on('touchend mouseup', function() {
+            jQuery(this).css('background-color', colorRegular);
         })
     })    // END изменение цвета кнопок прокрутки
 
-    $(document).ready(function() {
-        const JQ_ITEMS = $('.JS_Gallery-Item'),
-              V_ITEMS = document.querySelectorAll('.JS_Gallery-Item');
+    jQuery(document).ready(function() {
+        const GALLERY_ITEMS = jQuery('.JS_Gallery-Item');
+
         let jq_items_currentCoords = [],
             index_min,                  //присваивается в makeRating()
             index_max,
             coord_min,
             coord_max,
-            v_item_width = item => item.offsetWidth,
+            v_item_width = item => item.outerWidth(),
             round = coords => parseFloat(coords.toFixed(2) ),
             direction = that => that.attr('data-direction'),
-            step = index => v_item_width( V_ITEMS[index] ),
+            step = index => v_item_width( GALLERY_ITEMS.eq(index) ),
             stepLeft_around = () => jq_items_currentCoords[index_max] - step(index_min) + step(index_max),
             stepRight_around = () => coord_min;
 
-        $('.JS_Gallery-ControlButton').click(function() {
-            let that = $(this);
+        jQuery('.JS_Gallery-ControlButton').click(function() {
+            let that = jQuery(this);
             getCoordsCurrent();
             makeRating(jq_items_currentCoords);
 
@@ -41,24 +41,27 @@ $(document).ready(function() {
             }
         })
 
-
         function getCoordsCurrent() {
-            JQ_ITEMS.each(function(index) {
-                jq_items_currentCoords.push( round( $(this).offset().left) );
+            GALLERY_ITEMS.each(function(index) {
+                jq_items_currentCoords.push( round( jQuery(this).offset().left) );
             })
         } //END getCoordsCurrent()
 
         function letsMoveIt(index_key, step_around, direction) {
-            JQ_ITEMS.each(function(index) {
+            GALLERY_ITEMS.each(function(index) {
                 if(index == index_key) {
-                  $(this).offset( {left: step_around} )
+                    jQuery(this).offset( {left: step_around} );
                 }
                 else {
-                      $(this).offset( {left:jq_items_currentCoords[index] + direction * step(index_key)} )
+                      jQuery(this).offset( {left:jq_items_currentCoords[index] + direction * step(index_key)} )
                 }
             })
             reset_jq_items_currentCoords();
         } //END letsMoveIt()
+
+        function removeOpacity0(item) {
+            item.removeClass('opacity')
+        }
 
         function reset_jq_items_currentCoords() {
             jq_items_currentCoords.splice(0, jq_items_currentCoords.length);
