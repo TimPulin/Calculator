@@ -1,4 +1,4 @@
- /* Версия 3.1 с анимацией выбора элементов */
+
 /*стили вывода имени элемента в таблице*/
 .boxoutput-name {
     cursor:pointer;
@@ -157,6 +157,7 @@ animation: splash 2s;
     border-radius: 5px;
     box-sizing: border-box;
     cursor: pointer;
+    outline: none;
     padding: 5px 10px;
 	transition-duration: 0.3s;
     transition-property: background-color;
@@ -204,6 +205,7 @@ animation: splash 2s;
     border-radius: 5px;
     border-radius: 100%;
     cursor: pointer;
+    outline: none !important;
 }
 .gallery-arrow:first-child {
     padding: 4px 13px 4px 10px;
