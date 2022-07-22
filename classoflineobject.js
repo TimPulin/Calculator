@@ -1,4 +1,4 @@
-// classoflineobject.js
+// ===============================classoflineobject.js
 class Element {
 
     constructor(){
