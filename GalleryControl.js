@@ -1,4 +1,4 @@
-// GalleryControl.js
+// =========================GalleryControl.js
 jQuery(document).ready(function() {
     let colorActve = '#ea84ff',
         colorRegular = '#f3f4f8';
