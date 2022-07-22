@@ -1,11 +1,11 @@
 // Set.js
-$(document).ready(function() {
+jQuery(document).ready(function() {
 
       let IndexT;
-    const TABLINKS = $('#ElementModal .tabCalc-links .tabCalc-link');
-    const SECTIONTABLES = $('#ElementModal .JS_Section-Tables .JS_Section-Table');
+    const TABLINKS = jQuery('#ElementModal .tabCalc-links .tabCalc-link'), 
+          SECTIONTABLES = jQuery('#ElementModal .JS_Section-Tables .JS_Section-Table');
 
-    $('.boxoutput-name').click(function() {
+    jQuery('.boxoutput-name').click(function() {
         DirectorSetConfig();
     })
 
@@ -18,9 +18,9 @@ $(document).ready(function() {
             SetOutputs();
         }
         else {
-            $('.JS_AddJump').removeClass('splash');
+            jQuery('.JS_AddJump').removeClass('splash');
             SECTIONTABLES.each(function() {
-                $(this).find('.JS_Section-El:first').addClass('splash');
+                jQuery(this).find('.JS_Section-El:first').addClass('splash');
             })
             SwitchTabsInModal(TABLINKS.eq(2) );
         }
@@ -37,22 +37,22 @@ $(document).ready(function() {
 
     function SetLines() {
         SECTIONTABLES.eq(IndexT).find('.JS_Section-El').each(function(index) {
-            $(this).addClass(arrLinesClass[keyOfElement][index]);
+            jQuery(this).addClass(arrLinesClass[keyOfElement][index]);
         })
         SECTIONTABLES.eq(IndexT).find('.JS_Section-El:first').removeClass('splash');
     }
 
     function SetButtons() {
         SECTIONTABLES.eq(IndexT).find('.JS_Button, .JS_RemoveJump, .JS_AddJump').each(function(index) {
-            $(this).addClass(arrButtonsClass[keyOfElement][index]);
-            $(this).val(arrButtonsVal[keyOfElement][index]);
-            $(this).prop('disabled', arrButtonsAbility[keyOfElement][index]);
+            jQuery(this).addClass(arrButtonsClass[keyOfElement][index]);
+            jQuery(this).val(arrButtonsVal[keyOfElement][index]);
+            jQuery(this).prop('disabled', arrButtonsAbility[keyOfElement][index]);
         })
     }
 
     function SetOutputs() {
-        $('#ElementModal').find('.headeroutput-name, .headeroutput-scores, .lineoutput-scores').each(function(index) {
-            $(this).text(arrOutputs[keyOfElement][index]);
+        jQuery('#ElementModal').find('.headeroutput-name, .headeroutput-scores, .lineoutput-scores').each(function(index) {
+            jQuery(this).text(arrOutputs[keyOfElement][index]);
         })
     }
 })
