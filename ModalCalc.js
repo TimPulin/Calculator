@@ -1,33 +1,33 @@
 // ModalCalc.js
-$(document).ready(function() {
+jQuery(document).ready(function() {
 
     let Iam,
         currentLine,
         linescores;
 
-    $('.boxoutput-name').click(function() {
+    jQuery('.boxoutput-name').click(function() {
         ProgramsElements.ElementInModal1.ResetToZeroAllModalInfo();
         ProgramsElements.ElementInModal1.GetInfoFromElementObject();
     })
 
-    $('.JS_Name, .JS_Level, .JS_Rotation').click(function() {
-        Iam = $(this);
+    jQuery('.JS_Name, .JS_Level, .JS_Rotation').click(function() {
+        Iam = jQuery(this);
     })
 
-    $('.tabCalc-link').click(function() {
+    jQuery('.tabCalc-link').click(function() {
         ProgramsElements.ElementInModal1.ResetToZeroAllModalInfo();
     })
 
-    $('#ElementModal .JS_Reset').click(function() {
+    jQuery('#ElementModal .JS_Reset').click(function() {
         ProgramsElements.ElementInModal1.ResetToZeroAllModalInfo();
     })
 
 //=============================перенос информации с экрана выбора значения атрибута элемента
-    $(document).ready(function () {
+    jQuery(document).ready(function () {
         let Val_ButtonModal;
 
-       $('#ElementModal .JS_ButtonModal').click(function() {
-            Val_ButtonModal = $(this).val();
+       jQuery('#ElementModal .JS_ButtonModal').click(function() {
+            Val_ButtonModal = jQuery(this).val();
             SetPropretiesOfButtons();
             DirectorModal();
         })
@@ -54,22 +54,22 @@ $(document).ready(function() {
         }
     }) //=============================КОНЕЦ перенос информации с экрана выбора значения атрибута элемента
 
-    $('#ElementModal .JS_Fly, #ElementModal .JS_ChangeLeg').click(function() {
+    jQuery('#ElementModal .JS_Fly, #ElementModal .JS_ChangeLeg').click(function() {
         let button = jQuery(this).closest('.JS_Section-El').find('.JS_Name');
-        Iam = $(this);
-        if(!$('#ElementModal .JS_Fly').hasClass('active') && !$('#ElementModal .JS_ChangeLeg').hasClass('active') && button.val() != 'CoSp' ) {
-            $('#ElementModal .JS_V').removeClass('active activeColor');
+        Iam = jQuery(this);
+        if(!jQuery('#ElementModal .JS_Fly').hasClass('active') && !jQuery('#ElementModal .JS_ChangeLeg').hasClass('active') && button.val() != 'CoSp' ) {
+            jQuery('#ElementModal .JS_V').removeClass('active activeColor');
         }
         DirectorModal();
     })
 
-    $('#ElementModal').find('.JS_V, .JS_Galka, .JS_Edge, .JS_RemoveJump').click(function() {
-        Iam = $(this);
+    jQuery('#ElementModal').find('.JS_V, .JS_Galka, .JS_Edge, .JS_RemoveJump').click(function() {
+        Iam = jQuery(this);
         DirectorModal();
     })
 
-    $('#ElementModal .JS_RemoveJump').click(function() {
-        Iam = $(this).closest('.JS_Section-Table').find('.JS_Section-El.active:last .JS_Button:first');
+    jQuery('#ElementModal .JS_RemoveJump').click(function() {
+        Iam = jQuery(this).closest('.JS_Section-Table').find('.JS_Section-El.active:last .JS_Button:first');
         GetCurrentLineAndIndex();
         currentLine.removeClass('active splash').addClass('hide');
         ProgramsElements.ElementInModal1.ResetToZeroLinesInfo();
@@ -101,7 +101,7 @@ $(document).ready(function() {
         ProgramsElements.ElementInModal1.linename = '';
 
         currentLine.find('.JS_Button.active').each(function() {
-            ProgramsElements.ElementInModal1.linename += $(this).val();
+            ProgramsElements.ElementInModal1.linename += jQuery(this).val();
         })
     }
 
@@ -118,8 +118,8 @@ $(document).ready(function() {
 
     function PrinterModal() {
         ProgramsElements.ElementInModal1.makeNameOfElement();
-        $('#ElementModal .headeroutput-name').text(ProgramsElements.ElementInModal1.nameOfElement);
-        $('#ElementModal .headeroutput-scores').text(ProgramsElements.ElementInModal1.calcBaseValue().toFixed(2) );
+        jQuery('#ElementModal .headeroutput-name').text(ProgramsElements.ElementInModal1.nameOfElement);
+        jQuery('#ElementModal .headeroutput-scores').text(ProgramsElements.ElementInModal1.calcBaseValue().toFixed(2) );
     }
 })
 // END ModalCalc.js
