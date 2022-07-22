@@ -1,4 +1,4 @@
-// Compiling.js
+// =========================Compiling.js
 jQuery(document).ready(function() {
 
     let IamModal,
