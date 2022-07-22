@@ -110,7 +110,7 @@ animation: splash 2s;
 /*КОНЕЦ стили шапки модульного окна*/
 /*======================стили основной части модульного окна*/
 .mod-body{padding: 0;}
-.modal .wrap-tables{
+.modal .wrap-tables {
     margin: 10px 5px 0 5px;
     padding-bottom: 10px;
     background-color: #f3f4f8;
@@ -128,7 +128,7 @@ animation: splash 2s;
 }
 /*КОНЕЦ стили основной части модульного окна*/
 /*=========================стили подвала модульного окна*/
-.mod-footer{
+.modal-footer{
     height: 50px;
     padding: 5px;
 }
@@ -142,23 +142,26 @@ animation: splash 2s;
     margin:0;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
+    scrollbar-width: none;
+}
+.tabCalc-links::-webkit-scrollbar {
+    width: 0;
 }
 
 .tabCalc-links button {
     font-size: 18px;
     font-weight:500;
-    margin-top: 0px;
-    margin-bottom: 10px;
+    margin: 0;
     background-color: inherit;
     border: 1px solid #ccc;
-    border-radius: 50px 0 50px 5px;
+    border-radius: 5px;
     box-sizing: border-box;
     cursor: pointer;
-    padding: 5px 20px;
+    padding: 5px 10px;
 	transition-duration: 0.3s;
     transition-property: background-color;
 }
+
 @media (max-width:575px) {
     .tabCalc-links button{
         font-weight:500;
@@ -168,27 +171,46 @@ animation: splash 2s;
 .tabCalc-links button.active{
     background-color:#f3f4f8;
     border: 1px solid #f3f4f8;
-    border-radius: 50px 0 50px 5px;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.coolTabLeft {
+    box-shadow: 1px -5px 0px 1px #f3f4f8;
+    border-radius: 0px 5px 0px 0px !important;
+}
+.coolTabRight {
+    box-shadow: -1px -5px 0px 1px #f3f4f8;
+    border-radius: 5px 0px 0px 0px !important;
 }
 
 .gallery-container {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     padding: 0 3px;
 }
-.gallery-arrow {
-    font-size: 18px;
-    font-weight:500;
-    padding: 5px 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    background-color: #f3f4f8;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    cursor: pointer;
+
+@media (max-width: 575px) {
+    .gallery-arrow {
+        display: none;
+    }
 }
 
+.gallery-arrow {
+    font-size: 20px;
+    font-weight:500;
+    margin: 5px;
+    background-color: #f3f4f8;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+.gallery-arrow:first-child {
+    padding: 4px 13px 4px 10px;
+}
+.gallery-arrow:last-child {
+    padding: 4px 10px 4px 13px;
+}
 /*КОНЕЦ стили заклдок в модальном окне*/
 
 
