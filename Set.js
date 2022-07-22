@@ -1,8 +1,8 @@
-// Set.js
+// ====================Set.js
 jQuery(document).ready(function() {
 
       let IndexT;
-    const TABLINKS = jQuery('#ElementModal .tabCalc-links .tabCalc-link'), 
+    const TABLINKS = jQuery('#ElementModal .tabCalc-links .tabCalc-link'),
           SECTIONTABLES = jQuery('#ElementModal .JS_Section-Tables .JS_Section-Table');
 
     jQuery('.boxoutput-name').click(function() {
