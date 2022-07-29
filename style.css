@@ -127,7 +127,9 @@ a:hover {color:#ffcc00 !important;}
         margin-right: -35px;
     }
 } */
-
+.review h3 {
+    text-align: center !important;
+}
 .review .box_review {
     margin: 10px auto;
     max-width: 400px;
@@ -192,8 +194,8 @@ li.list_of_element {list-style-type: circle}
 /*КОНЕЦ Список с большим содержанием*/
 
 .nomark {list-style-type: none;}
-picture {
-    max-width: 100%;
+.figure img {
+    width: 100%;
 }
 
 ul{
@@ -516,8 +518,12 @@ footer h5 {font-weight: 400; font-size: 16px;}
         margin-top: 0px;
     }
 }
-.item-page h2, .item-page h3 {
-    text-align:center;
+.item-page h2 {
+    text-align: center;
+    margin-top: 25px;
+}
+.item-page h3 {
+    text-align: left;
     margin-top: 20px;
 }
 
