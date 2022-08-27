@@ -212,11 +212,11 @@ animation: splash 2s;
     border-radius: 5px 0px 0px 0px !important;
 }
 
-.gallery-container {
+/* .gallery-container {
     display: flex;
     align-items: flex-start;
     border-radius: 5px;
-    /* padding: 0 5px; */
+    padding: 0 5px;
     margin: 0 5px;
 }
 
@@ -224,7 +224,7 @@ animation: splash 2s;
         cursor: grabbing;
         cursor: -moz-grabbing;
         cursor: -webkit-grabbing;
-}
+} */
 
 /* .gallery-arrow {
     font-size: 20px;
@@ -257,10 +257,13 @@ animation: splash 2s;
     background-color: #A790FF;
 }
 .buttonFlat{
+    min-width: 10px;
+    max-width: 300px;
 	text-decoration: none !important;
 	outline: none !important;
 	border-radius: 5px;
     border: 1px solid #ccc;
+    transition-duration: 0.7s;
 }
 .buttonFlat:active{
     box-shadow:1px 1px 1px 1px #000 inset, -1px -1px 1px 1px #fff inset;
@@ -278,8 +281,5 @@ animation: splash 2s;
 	padding: .75rem;
 	vertical-align: top;
 }
-
-/* .table {border:1px solid black;  } */
-/* tr{border:1px solid black;} */
 
 /*стили всплывающего окна*/
