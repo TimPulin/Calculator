@@ -170,6 +170,7 @@ animation: splash 2s;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 .tabCalc-links::-webkit-scrollbar {
     width: 0;
@@ -214,16 +215,18 @@ animation: splash 2s;
 .gallery-container {
     display: flex;
     align-items: flex-start;
-    padding: 0 3px;
+    border-radius: 5px;
+    /* padding: 0 5px; */
+    margin: 0 5px;
 }
 
-@media (max-width: 575px) {
-    .gallery-arrow {
-        display: none;
-    }
+.gallery-container:active {
+        cursor: grabbing;
+        cursor: -moz-grabbing;
+        cursor: -webkit-grabbing;
 }
 
-.gallery-arrow {
+/* .gallery-arrow {
     font-size: 20px;
     font-weight:500;
     margin: 5px;
@@ -238,7 +241,7 @@ animation: splash 2s;
 }
 .gallery-arrow:last-child {
     padding: 4px 10px 4px 13px;
-}
+} */
 /*КОНЕЦ стили заклдок в модальном окне*/
 
 
