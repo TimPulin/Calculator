@@ -212,36 +212,6 @@ animation: splash 2s;
     border-radius: 5px 0px 0px 0px !important;
 }
 
-/* .gallery-container {
-    display: flex;
-    align-items: flex-start;
-    border-radius: 5px;
-    padding: 0 5px;
-    margin: 0 5px;
-}
-
-.gallery-container:active {
-        cursor: grabbing;
-        cursor: -moz-grabbing;
-        cursor: -webkit-grabbing;
-} */
-
-/* .gallery-arrow {
-    font-size: 20px;
-    font-weight:500;
-    margin: 5px;
-    background-color: #f3f4f8;
-    border: 1px solid #ccc;
-    border-radius: 100%;
-    cursor: pointer;
-    outline: none !important;
-}
-.gallery-arrow:first-child {
-    padding: 4px 13px 4px 10px;
-}
-.gallery-arrow:last-child {
-    padding: 4px 10px 4px 13px;
-} */
 /*КОНЕЦ стили заклдок в модальном окне*/
 
 
