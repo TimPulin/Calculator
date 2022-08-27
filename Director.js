@@ -3,14 +3,15 @@
 
 let ID,
     INDEX_ActiveTab,
-    keyOfElement;
+    keyOfElement,
+    durationOfClickTabLink = 0;
 
-let arrActiveTabs = {};
-let arrButtonsClass = {};
-let arrButtonsVal = {};
-let arrLinesClass = {};
-let arrButtonsAbility = {};
-let arrOutputs = {};
+let arrActiveTabs = {},
+    arrButtonsClass = {},
+    arrButtonsVal = {},
+    arrLinesClass = {},
+    arrButtonsAbility = {},
+    arrOutputs = {};
 
 jQuery(document).ready(function () {
     jQuery('.JS_Section-Table').find('.boxoutput-name, .JS_Goe, .JS_X').click(function() {
@@ -68,6 +69,23 @@ function Hide_HeadersSections(Iam) {
     Iam.closest('.JS_Section-Modal').find('.mod-header .JS_Section.active').removeClass('active');
 }
 
+jQuery(document).ready(function() {
+    const BOX = jQuery('#ElementModal .JS_DragScroll');
+    let startClick = 0,
+        currentDate = () => Date.now();
+
+    BOX.mousedown(function() {
+        GetDurationClick()
+    })
+
+    function GetDurationClick() {
+        startClick = currentDate();
+        BOX.mouseup(function() {
+            durationOfClickTabLink = currentDate() - startClick;
+        })
+    }
+})
+
 function SwitchTabsInModal(Iam) {
         let Index,
             Title_Modal,
@@ -75,13 +93,15 @@ function SwitchTabsInModal(Iam) {
 
         Index = Iam.closest('.tabCalc-links').find('.tabCalc-link').index(Iam);
         Title_Modal = Iam.val();
-        AddRemove_Active();
-        RenderingCoolTab(Iam);
-        ResetModal(Iam);
-        ShowHide_tabel ();
-        ShowHeader();
-        Print_Title_Modal();
 
+        if (durationOfClickTabLink < 500) {
+            AddRemove_Active();
+            RenderingCoolTab(Iam);
+            ResetModal(Iam);
+            ShowHide_tabel ();
+            ShowHeader();
+            Print_Title_Modal();
+        }
 
     function AddRemove_Active() {
         section('.tabCalc-links').find('.tabCalc-link.active').removeClass('active');
