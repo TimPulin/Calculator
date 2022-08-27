@@ -3,18 +3,19 @@
 
 let ID,
     INDEX_ActiveTab,
-    keyOfElement;
+    keyOfElement,
+    durationOfClickTabLink = 0;
 
-let arrActiveTabs = {};
-let arrButtonsClass = {};
-let arrButtonsVal = {};
-let arrLinesClass = {};
-let arrButtonsAbility = {};
-let arrOutputs = {};
+let arrActiveTabs = {},
+    arrButtonsClass = {},
+    arrButtonsVal = {},
+    arrLinesClass = {},
+    arrButtonsAbility = {},
+    arrOutputs = {};
 
-$(document).ready(function () {
-    $('.JS_Section-Table').find('.boxoutput-name, .JS_Goe, .JS_X').click(function() {
-        GetID($(this) );
+jQuery(document).ready(function () {
+    jQuery('.JS_Section-Table').find('.boxoutput-name, .JS_Goe, .JS_X').click(function() {
+        GetID(jQuery(this) );
         MakeKeyOfElement();
     })
 })
@@ -25,14 +26,14 @@ function GetID(here) {
 
 function MakeKeyOfElement() {
     keyOfElement = `Element${ID+1}`;
-    // console.log(keyOfElement)
 }
 
-const BUTTON_EU = $('#jumps .JS_ButtonModal[value="Eu"]'),
-      BUTTON_A = $('#jumps .JS_ButtonModal[value="A"]'),
-      BUTTON_ROTATION = $('#ElementModal .JS_Section-Tables .JS_Section-Table:eq(2) .JS_Section-El:eq(1) .JS_Rotation'),
-      BUTTON_CHSQ = $('#steps .JS_ButtonModal[value="ChSq"]'),
-      BUTTON_STEPLEVEL = $('#ElementModal .JS_Section-Tables .JS_Section-Table:eq(0) .JS_Level');
+const BUTTON_EU = jQuery('#jumps .JS_ButtonModal[value="Eu"]'),
+      BUTTON_A = jQuery('#jumps .JS_ButtonModal[value="A"]'),
+      BUTTON_ROTATION = jQuery('#ElementModal .JS_Section-Tables .JS_Section-Table:eq(2) .JS_Section-El:eq(1) .JS_Rotation'),
+      BUTTON_CHSQ = jQuery('#steps .JS_ButtonModal[value="ChSq"]'),
+      BUTTON_STEPLEVEL = jQuery('#ElementModal .JS_Section-Tables .JS_Section-Table:eq(0) .JS_Level');
+      BUTTON_DEATHSPIRALLEVEL = jQuery('#ElementModal .JS_Section-Tables .JS_Section-Table:eq(6) .JS_Level');
 
 
 function ResetModal(Iam) {
@@ -42,10 +43,10 @@ function ResetModal(Iam) {
     ResetButtons(section);
     Hide_HeadersSections(Iam);
     ShowHeader();
-    $('#ElementModal').find('.JS_Section-Table .JS_Section-El').not(':only-child').not(':first').removeClass('active');
+    jQuery('#ElementModal').find('.JS_Section-Table .JS_Section-El').not(':only-child').not(':first').removeClass('active');
     section.find('.headeroutput-name').val('');
     section.find('.headeroutput-scores').val('0.00');
-    $('#ElementModal').find('.JS_RemoveJump, .JS_AddJump').prop('disabled', true);
+    jQuery('#ElementModal').find('.JS_RemoveJump, .JS_AddJump').prop('disabled', true);
 }
 
 function ResetButtons(section) {
@@ -53,44 +54,88 @@ function ResetButtons(section) {
     section.find('.JS_Name').val('элемент');
     section.find('.JS_Level').val('B').prop('disabled', false);
     section.find('.JS_Rotation').val('1').prop('disabled', false);
-    $('#ElementModal .JS_V').prop('disabled', true);
+    jQuery('#ElementModal .JS_V').prop('disabled', true);
     section.find('.lineoutput-scores').text('0.00');
     section.find('.JS_Edge').prop('disabled', true);
+    section.find('.JS_Fly').prop('disabled', false);
+    section.find('.JS_ChangeLeg').prop('disabled', false);
 }
 
 function ShowHeader() {
-    $('#header_title').addClass('active');
+    jQuery('#header_title').addClass('active');
 }
 
 function Hide_HeadersSections(Iam) {
     Iam.closest('.JS_Section-Modal').find('.mod-header .JS_Section.active').removeClass('active');
 }
 
+jQuery(document).ready(function() {
+    const BOX = jQuery('#ElementModal .JS_DragScroll');
+    let startClick = 0,
+        currentDate = () => Date.now();
+
+    BOX.mousedown(function() {
+        GetDurationClick()
+    })
+
+    function GetDurationClick() {
+        startClick = currentDate();
+        BOX.mouseup(function() {
+            durationOfClickTabLink = currentDate() - startClick;
+        })
+    }
+})
+
 function SwitchTabsInModal(Iam) {
         let Index,
-            Title_Modal;
+            Title_Modal,
+            section = item => Iam.closest(item);
 
         Index = Iam.closest('.tabCalc-links').find('.tabCalc-link').index(Iam);
         Title_Modal = Iam.val();
-        AddRemove_Active();
-        ResetModal(Iam);
-        ShowHide_tabel ();
-        ShowHeader();
-        Print_Title_Modal();
 
+        if (durationOfClickTabLink < 500) {
+            AddRemove_Active();
+            RenderingCoolTab(Iam);
+            ResetModal(Iam);
+            ShowHide_tabel ();
+            ShowHeader();
+            Print_Title_Modal();
+        }
 
     function AddRemove_Active() {
-        Iam.closest('.tabCalc-links').find('.tabCalc-link.active').removeClass('active');
+        section('.tabCalc-links').find('.tabCalc-link.active').removeClass('active');
         Iam.addClass('active');
     }
 
+    //========================для красивого закругления основания актвной вкладки
+    function RenderingCoolTab(that) {
+
+        const TABS = jQuery('.tabCalc-link');
+        let index_active,
+            index_left,
+            index_right;
+
+            index_active = that.index();
+            TABS.each(function() {
+                jQuery(this).removeClass('coolTabLeft coolTabRight')
+            })
+            index_left = index_active - 1;
+            if(index_left < 0) {index_left = TABS.length - 1}
+            index_right = index_active + 1;
+            if(index_right > TABS.length - 1) {index_right = 0}
+
+            TABS.eq(index_left).addClass('coolTabLeft');
+            TABS.eq(index_right).addClass('coolTabRight');
+    } //========================КОНЕЦ красивого закругления основания актвной вкладки
+
     function ShowHide_tabel() {
-        Iam.closest('.tabCalc-wrap').find('.tabCalc-content.active').removeClass('active');
-        Iam.closest('.tabCalc-wrap').find('.tabCalc-content').eq(Index).addClass('active');
+        section('.tabCalc-wrap').find('.tabCalc-content.active').removeClass('active');
+        section('.tabCalc-wrap').find('.tabCalc-content').eq(Index).addClass('active');
     }
 
     function Print_Title_Modal() {
-        Iam.closest('.JS_Section-Modal').find('.headeroutput-title').text(Title_Modal);
+        section('.JS_Section-Modal').find('.headeroutput-title').text(Title_Modal);
     }
 } //END SwitchTabsInModal
 
@@ -98,8 +143,8 @@ function SwitchTabsInModal(Iam) {
 //======================КОНЕЦ ГЛОБАЛЬНЫЕ служебные функции======================
 
 //======================сброс массивов представлления одной линии==============================
-$(document).ready(function() {
-    $('#ElementModal .JS_Reset').click(function(){
+jQuery(document).ready(function() {
+    jQuery('#ElementModal .JS_Reset').click(function(){
         ResetModalArrs();
         Reset_ElementObject(ProgramsElements[keyOfElement]);
     })
@@ -116,10 +161,10 @@ $(document).ready(function() {
 //===================КОНЕЦ сброс массивов одной линии===================
 
 //==================сброс массивов всей таблицы============================
-$(document).ready(function() {
-    let section = $('#MainTable');
+jQuery(document).ready(function() {
+    let section = jQuery('#MainTable');
 
-    $('#MainTable .JS_Reset').click(function() {
+    jQuery('#MainTable .JS_Reset').click(function() {
         ResetAllArrs();
         CleanUpMainTable();
         section.find('.JS_Section-El').each(function(index) {
@@ -167,5 +212,6 @@ function Reset_ElementObject(currentObject) {
         currentObject.value3 = 0;
         currentObject.goe = 0;
         currentObject.halfPartBonus = 1;
+        currentObject.index_active_tab = 0;
 }
 // END Director.js

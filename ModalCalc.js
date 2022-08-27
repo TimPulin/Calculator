@@ -1,40 +1,33 @@
-// ModalCalcV3-1.js
-$(document).ready(function() {
+// ================================ModalCalc.js
+jQuery(document).ready(function() {
 
     let Iam,
         currentLine,
         linescores;
 
-    $('.boxoutput-name').click(function() {
+    jQuery('.boxoutput-name').click(function() {
         ProgramsElements.ElementInModal1.ResetToZeroAllModalInfo();
-        GetInfoFrom_ElementObject();
+        ProgramsElements.ElementInModal1.GetInfoFromElementObject();
     })
 
-    function GetInfoFrom_ElementObject() {
-        for(let i = 1; i <= 3; i++) {
-            ProgramsElements.ElementInModal1[`name${i}`] = ProgramsElements[keyOfElement][`name${i}`];
-            ProgramsElements.ElementInModal1[`value${i}`] = ProgramsElements[keyOfElement][`value${i}`];
-        }
-    }
-
-    $('.JS_Name, .JS_Level, .JS_Rotation').click(function() {
-        Iam = $(this);
+    jQuery('.JS_Name, .JS_Level, .JS_Rotation').click(function() {
+        Iam = jQuery(this);
     })
 
-    $('.tabCalc-link').click(function() {
+    jQuery('.tabCalc-link').click(function() {
         ProgramsElements.ElementInModal1.ResetToZeroAllModalInfo();
     })
 
-    $('#ElementModal .JS_Reset').click(function() {
+    jQuery('#ElementModal .JS_Reset').click(function() {
         ProgramsElements.ElementInModal1.ResetToZeroAllModalInfo();
     })
 
 //=============================перенос информации с экрана выбора значения атрибута элемента
-    $(document).ready(function () {
+    jQuery(document).ready(function () {
         let Val_ButtonModal;
 
-       $('#ElementModal .JS_ButtonModal').click(function() {
-            Val_ButtonModal = $(this).val();
+       jQuery('#ElementModal .JS_ButtonModal').click(function() {
+            Val_ButtonModal = jQuery(this).val();
             SetPropretiesOfButtons();
             DirectorModal();
         })
@@ -47,6 +40,9 @@ $(document).ready(function() {
                 if (Val_ButtonModal == 'Eu'){
                     BUTTON_ROTATION.val(1);
                 }
+                if (Val_ButtonModal == 'PiF'){
+                    BUTTON_DEATHSPIRALLEVEL.val(1);
+                }
                 else if(Val_ButtonModal == 'ChSq') {
                     BUTTON_STEPLEVEL.val(1);
                 }
@@ -58,21 +54,22 @@ $(document).ready(function() {
         }
     }) //=============================КОНЕЦ перенос информации с экрана выбора значения атрибута элемента
 
-    $('#ElementModal .JS_Fly, #ElementModal .JS_ChangeLeg').click(function() {
-        Iam = $(this);
-        if(!$('#ElementModal .JS_Fly').hasClass('active') && !$('#ElementModal .JS_ChangeLeg').hasClass('active') ) {
-            $('#ElementModal .JS_V').removeClass('active activeColor');
+    jQuery('#ElementModal .JS_Fly, #ElementModal .JS_ChangeLeg').click(function() {
+        let button = jQuery(this).closest('.JS_Section-El').find('.JS_Name');
+        Iam = jQuery(this);
+        if(!jQuery('#ElementModal .JS_Fly').hasClass('active') && !jQuery('#ElementModal .JS_ChangeLeg').hasClass('active') && button.val() != 'CoSp' ) {
+            jQuery('#ElementModal .JS_V').removeClass('active activeColor');
         }
         DirectorModal();
     })
 
-    $('#ElementModal').find('.JS_V, .JS_Galka, .JS_Edge, .JS_RemoveJump').click(function() {
-        Iam = $(this);
+    jQuery('#ElementModal').find('.JS_V, .JS_Galka, .JS_Edge, .JS_RemoveJump').click(function() {
+        Iam = jQuery(this);
         DirectorModal();
     })
 
-    $('#ElementModal .JS_RemoveJump').click(function() {
-        Iam = $(this).closest('.JS_Section-Table').find('.JS_Section-El.active:last .JS_Button:first');
+    jQuery('#ElementModal .JS_RemoveJump').click(function() {
+        Iam = jQuery(this).closest('.JS_Section-Table').find('.JS_Section-El.active:last .JS_Button:first');
         GetCurrentLineAndIndex();
         currentLine.removeClass('active splash').addClass('hide');
         ProgramsElements.ElementInModal1.ResetToZeroLinesInfo();
@@ -92,7 +89,6 @@ $(document).ready(function() {
         ProgramsElements.ElementInModal1.MakeLinesInfo();
         PrintLineScores();
         removeClass_Splash();
-        return;
     }
 
 
@@ -105,7 +101,7 @@ $(document).ready(function() {
         ProgramsElements.ElementInModal1.linename = '';
 
         currentLine.find('.JS_Button.active').each(function() {
-            ProgramsElements.ElementInModal1.linename += $(this).val();
+            ProgramsElements.ElementInModal1.linename += jQuery(this).val();
         })
     }
 
@@ -117,14 +113,13 @@ $(document).ready(function() {
 
     function PrintLineScores() {
         currentLine.find('.lineoutput-scores').text(ProgramsElements.ElementInModal1.SendLinesScores().toFixed(2) );
-        return;
     }
     //================КОНЕЦ все функции DirectorLine=====================
 
     function PrinterModal() {
         ProgramsElements.ElementInModal1.makeNameOfElement();
-        $('#ElementModal .headeroutput-name').text(ProgramsElements.ElementInModal1.nameOfElement);
-        $('#ElementModal .headeroutput-scores').text(ProgramsElements.ElementInModal1.calcBaseValue().toFixed(2) );
+        jQuery('#ElementModal .headeroutput-name').text(ProgramsElements.ElementInModal1.nameOfElement);
+        jQuery('#ElementModal .headeroutput-scores').text(ProgramsElements.ElementInModal1.calcBaseValue().toFixed(2) );
     }
 })
-// END ModalCalcV3-1.js
+// END ModalCalc.js

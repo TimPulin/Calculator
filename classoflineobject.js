@@ -1,4 +1,4 @@
-// classoflineobject.js
+// ===============================classoflineobject.js
 class Element {
 
     constructor(){
@@ -12,6 +12,7 @@ class Element {
         this.value3 = 0
         this.goe = 0
         this.halfPartBonus = 1
+        this.index_active_tab = 0
     }
 
     makeNameOfElement() {
@@ -82,7 +83,7 @@ class ElementInModal extends Element {
     ResetToZeroLinesInfo() {
         this[`value${this.currentLine_Index + 1}`] = 0;
         this[`name${this.currentLine_Index + 1}`] = '';
-        ProgramsElements.ElementInModal1.linename = '';
+        this.linename = '';
     }
 
     ResetToZeroAllModalInfo() {
@@ -94,8 +95,24 @@ class ElementInModal extends Element {
         }
     }
 
+    GetInfoFromElementObject() {
+        for(let i = 1; i <= 3; i++) {
+            this[`name${i}`] = ProgramsElements[keyOfElement][`name${i}`];
+            this[`value${i}`] = ProgramsElements[keyOfElement][`value${i}`];
+        }
+    }
+
     SendLinesScores() {
         return this[`value${this.currentLine_Index + 1}`]
+    }
+
+    SendModalInfo(goe) {
+        for(let i = 1; i <= 3; i++) {
+            ProgramsElements[keyOfElement][`name${i}`] = this[`name${i}`];
+            ProgramsElements[keyOfElement][`value${i}`] = this[`value${i}`];
+            ProgramsElements[keyOfElement]['goe'] = goe;
+            ProgramsElements[keyOfElement]['index_active_tab'] = INDEX_ActiveTab;
+        }
     }
 }// END class ElementInModal{}
 

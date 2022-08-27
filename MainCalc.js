@@ -1,27 +1,28 @@
-// MainCalcV3-1.js
-$(document).ready(function() {
+// =======================MainCalc.js
+jQuery(document).ready(function() {
 
     let Iam,
         buttonX,
         buttonGoe,
         section,
         goeOfElement;
-    const SECTIONTABLES = $('#ElementModal .JS_Section-Tables .JS_Section-Table');
+    const SECTIONTABLES = jQuery('#ElementModal .JS_Section-Tables .JS_Section-Table');
 
-    $('.boxoutput-name').click(function() {
-        Iam = $(this);
-        buttonX = $(this).closest('.JS_Section-El').find('.JS_X');
-        buttonGoe = $(this).closest('.JS_Section-El').find('.JS_Goe');
+    jQuery('.boxoutput-name, .JS_X, .JS_Goe').click(function() {
+        Iam = jQuery(this);
+        buttonX = jQuery(this).closest('.JS_Section-El').find('.JS_X');
+        buttonGoe = jQuery(this).closest('.JS_Section-El').find('.JS_Goe');
     })
 
-    $('#ElementModal .JS_Save').click(function() {
+    jQuery('#ElementModal .JS_Save').click(function() {
         if(INDEX_ActiveTab == 2) {
             goeOfElement = Calc_GoeOfElement();
         }
         else {
             goeOfElement = 0;
         }
-        SendInfoTo_ElementObject();
+        ProgramsElements.ElementInModal1.SendModalInfo(goeOfElement);
+        // SendInfoTo_ElementObject();
         DirectorMain();
     })
 
@@ -29,44 +30,29 @@ $(document).ready(function() {
         let summ = 0;
 
         SECTIONTABLES.eq(2).find('.JS_Galka.active, .JS_Edge.active').each(function() {
-            summ += listValue_Goe[ $(this).val() ];
+            summ += listValue_Goe[ jQuery(this).val() ];
         })
         if(summ < -5) {summ = -5}
         return summ;
     }
 
-    function SendInfoTo_ElementObject() {
-        for(let i = 1; i <= 3; i++) {
-            ProgramsElements[keyOfElement][`name${i}`] = ProgramsElements.ElementInModal1[`name${i}`];
-            ProgramsElements[keyOfElement][`value${i}`] = ProgramsElements.ElementInModal1[`value${i}`];
-            ProgramsElements[keyOfElement].goe = goeOfElement;
-        }
-    }
 
-    $('#ElementModal .JS_Reset').click(function() {
+    jQuery('#ElementModal .JS_Reset').click(function() {
         buttonX.prop('disabled', true).removeClass('active activeColor');
         buttonGoe.removeClass('active activeColor').val(0);
         DirectorMain();
     })
 
-    //Работа с кнопкой Goe
-    $('.JS_Section-Table .JS_Goe').click(function() {
-        Iam = $(this);
-        buttonGoe = $(this);
-    })
-    $('#GoeModal .JS_ButtonModal').click(function() {
-        
-        ProgramsElements[keyOfElement].goe = $(this).val();
+    jQuery('#GoeModal .JS_ButtonModal').click(function() {
+        ProgramsElements[keyOfElement].goe = jQuery(this).val();
         Iam.val(ProgramsElements[keyOfElement].goe)
         DirectorMain();
     })
 
     //Работа с кнопкой Х
-    $('.JS_Section-Table .JS_X').click(function() {
-        Iam = $(this);
-        buttonX = $(this);
-        $(this).toggleClass('active activeColor');
-        $(this).hasClass('active') ? ProgramsElements[keyOfElement].halfPartBonus = 1.1 : ProgramsElements[keyOfElement].halfPartBonus = 1;
+    jQuery('.JS_Section-Table .JS_X').click(function() {
+        jQuery(this).toggleClass('active activeColor');
+        jQuery(this).hasClass('active') ? ProgramsElements[keyOfElement].halfPartBonus = 1.1 : ProgramsElements[keyOfElement].halfPartBonus = 1;
         DirectorMain();
     })
 
@@ -84,7 +70,7 @@ $(document).ready(function() {
         section.find('.lineoutput-scores').text(ProgramsElements[keyOfElement].valueOfElement.toFixed(2) );
         buttonGoe.val(ProgramsElements[keyOfElement].goe);
         ProgramsElements[keyOfElement].goe == 0 ? buttonGoe.removeClass('active activeColor') : buttonGoe.addClass('active activeColor');
-        if(INDEX_ActiveTab == 2) {
+        if(ProgramsElements[keyOfElement].index_active_tab == 2) {
             buttonX.prop('disabled', false);
         }
         else {
@@ -96,14 +82,14 @@ $(document).ready(function() {
     function CalcFullScores() {
         let fullscores = 0;
 
-        $('#MainTable').find('.JS_Section-El').each(function(index) {
+        jQuery('#MainTable').find('.JS_Section-El').each(function(index) {
             fullscores += ProgramsElements[`Element${index+1}`].valueOfElement;
         })
         return fullscores;
     }
 
     function RenderingFullScores() {
-        $('#MainTable').find('.tableoutput-scores').text(CalcFullScores().toFixed(2) );
+        jQuery('#MainTable').find('.tableoutput-scores').text(CalcFullScores().toFixed(2) );
     }
 })
-// END MainCalcV3-1.js
+// END MainCalc.js

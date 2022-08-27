@@ -1,5 +1,5 @@
- /* Версия 3.1 с анимацией выбора элементов */
-/*стили вывода имени элемента в таблице*/
+
+/*стили вывода имени элемента в таблице на главной странице калькулятора*/
 .boxoutput-name {
     cursor:pointer;
 	border: 1px solid #ccc;
@@ -27,62 +27,85 @@
 
 /*==============================стили всплывающего окна===============================*/
 
-.bg-ccc{
+.bg-ccc {
     background-color: #ccc;
 }
 
 /*==============стили шапки модульного окна*/
 .mod-header{
+    overflow: hidden;
     margin: 5px;
-    padding-top: 10px;
-    padding-bottom: 0;
+    padding: 0px;
     background-color: #f3f4f8;
     border-radius: 5px;
-    border-top: 2px solid #ddd;
-    border-bottom: 2px solid #aaa;
-    border-left: 2px solid #ddd;
-    border-right: 2px solid #aaa;
+    border: 2px solid #aaa;
 }
-.header-box{width:100%;}
+
+.header-box-title{
+    width:100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.header-box-body_output {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 10px 10px 15px 10px;
+        border-top: 1px solid #dee2e6;
+}
 .headeroutput-name, .headeroutput-scores{
     margin-top:1px ;
 }
-.mod-header{
-    overflow: hidden;
-}
-.mod-header .table {margin-top: 10px; margin-bottom: 0;}
 
-#ElementModal .mod-header .JS_Section{
+.header-box-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0px 10px 15px 10px;
+    border-top: 1px solid #dee2e6;
+}
+.header-box-body input {
+    margin-top: 10px;
+}
+.header-box-body input:not(:first-child) {
+    margin-left: 10px;
+}
+
+#ElementModal .mod-header .header-box {
     position: absolute;
     top:-10000px;
 }
 
-#ElementModal .mod-header .JS_Section.active{
+#ElementModal .mod-header .header-box.active {
     position: static;
 }
 
 /* Анимация выпадения кнопок выбора элемента */
-#ElementModal .mod-header .JS_Section .table{
+
+#ElementModal .header-box-body {
     overflow: hidden;
 }
-#ElementModal .mod-header .JS_Section .table .JS_ButtonModal{
+
+#ElementModal .header-box .JS_ButtonModal{
     position: relative;
     top: -50px;
     transition-duration: 0.5s;
-
 }
-#ElementModal .mod-header .JS_Section.active td:nth-child(1) .JS_ButtonModal{transition-delay:0}
-#ElementModal .mod-header .JS_Section.active td:nth-child(2) .JS_ButtonModal{transition-delay:0.1s}
-#ElementModal .mod-header .JS_Section.active td:nth-child(3) .JS_ButtonModal{transition-delay:0.2s}
-#ElementModal .mod-header .JS_Section.active td:nth-child(4) .JS_ButtonModal{transition-delay:0.3s}
-#ElementModal .mod-header .JS_Section.active td:nth-child(5) .JS_ButtonModal{transition-delay:0.4s}
-#ElementModal .mod-header .JS_Section.active td:nth-child(6) .JS_ButtonModal{transition-delay:0.5s}
-#ElementModal .mod-header .JS_Section.active td:nth-child(7) .JS_ButtonModal{transition-delay:0.6s}
 
-#ElementModal .mod-header .JS_Section.active .JS_ButtonModal{
+#ElementModal .header-box.active .JS_ButtonModal:nth-child(1) {transition-delay:0}
+#ElementModal .header-box.active .JS_ButtonModal:nth-child(2) {transition-delay:0.1s}
+#ElementModal .header-box.active .JS_ButtonModal:nth-child(3) {transition-delay:0.2s}
+#ElementModal .header-box.active .JS_ButtonModal:nth-child(4) {transition-delay:0.3s}
+#ElementModal .header-box.active .JS_ButtonModal:nth-child(5) {transition-delay:0.4s}
+#ElementModal .header-box.active .JS_ButtonModal:nth-child(6) {transition-delay:0.5s}
+#ElementModal .header-box.active .JS_ButtonModal:nth-child(7) {transition-delay:0.6s}
+#ElementModal .header-box.active .JS_ButtonModal:nth-child(8) {transition-delay:0.7s}
+#ElementModal .header-box.active .JS_ButtonModal:nth-child(9) {transition-delay:0.8s}
+
+#ElementModal .header-box.active .JS_ButtonModal {
     transform: translateY(50px);
 }
-
 /*КОНЕЦ Анимация выпадения кнопок выбора элемента */
 
 /* Анимация выделения в секции элемента */
@@ -93,7 +116,7 @@
     display: table-row;
     border-radius: 5px;
 }
-.splash{
+.splash {
 animation: splash 2s;
 }
 @keyframes splash {
@@ -112,15 +135,11 @@ animation: splash 2s;
 /* КОНЕЦ Анимация выделения в секции элемента */
 /*КОНЕЦ стили шапки модульного окна*/
 /*======================стили основной части модульного окна*/
-.mod-body{padding: 0;}
-.modal .wrap-tables{
+.mod-body {padding: 0;}
+.modal .wrap-tables {
     margin: 10px 5px 0 5px;
     padding-bottom: 10px;
     background-color: #f3f4f8;
-    border-top: 2px solid #ddd;
-    border-bottom: 2px solid #aaa;
-    border-left: 2px solid #ddd;
-    border-right: 2px solid #aaa;
     border-radius: 5px;
 }
 #ElementModal .tabCalc-content{
@@ -135,7 +154,8 @@ animation: splash 2s;
 }
 /*КОНЕЦ стили основной части модульного окна*/
 /*=========================стили подвала модульного окна*/
-.mod-footer{
+
+.modal-footer {
     height: 50px;
     padding: 5px;
 }
@@ -143,48 +163,77 @@ animation: splash 2s;
 /*f3f4f8   dee2e6*/
 /*==========================стили заклдок в модальном окне==============*/
 .tabCalc-links {
+    display: flex;
     font-size: 0;
-    margin:0 5px 20px 5px;
+    padding-top: 0px;
+    margin:0;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
+.tabCalc-links::-webkit-scrollbar {
+    width: 0;
+}
+
 .tabCalc-links button {
     font-size: 18px;
     font-weight:500;
-    margin-top: -2px;
+    margin: 0;
     background-color: inherit;
-    border-left: 2px solid #ccc;
-    border-right: 2px solid  #ccc;
-    border-top: 2px solid #aaa;
-    border-bottom: 2px solid #ccc;
-    border-radius: 0 0 5px 5px;
-    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
     cursor: pointer;
-    padding: 2px 20px;
-	transition: 0.3s;
+    outline: none;
+    padding: 5px 10px;
+	transition-duration: 0.3s;
+    transition-property: background-color;
 }
+
 @media (max-width:575px) {
     .tabCalc-links button{
         font-weight:500;
-        padding: 2px 6px;
+        padding: 5px 6px;
     }
 }
 .tabCalc-links button.active{
-    background-color:#f3f4f8 ;
-    border-top: 2px solid #f3f4f8;
-    border-bottom: 2px solid #aaa;
-    border-left: 2px solid #ccc;
-    border-right: 2px solid  #aaa;
+    background-color:#f3f4f8;
+    border: 1px solid #f3f4f8;
+    border-radius: 0px 0px 5px 5px;
 }
+
+.coolTabLeft {
+    box-shadow: 1px -5px 0px 1px #f3f4f8;
+    border-radius: 0px 5px 0px 0px !important;
+}
+.coolTabRight {
+    box-shadow: -1px -5px 0px 1px #f3f4f8;
+    border-radius: 5px 0px 0px 0px !important;
+}
+
 /*КОНЕЦ стили заклдок в модальном окне*/
+
+
 /*==============================стили кнопок*/
 @media (min-width:576px) {
     .buttonGalka{width: 45px;}
 }
+.buttonReset:hover {
+    background-color: #FF819C;
+}
 
+.buttonSave:hover {
+    background-color: #A790FF;
+}
 .buttonFlat{
+    min-width: 10px;
+    max-width: 300px;
 	text-decoration: none !important;
 	outline: none !important;
 	border-radius: 5px;
     border: 1px solid #ccc;
+    transition-duration: 0.7s;
 }
 .buttonFlat:active{
     box-shadow:1px 1px 1px 1px #000 inset, -1px -1px 1px 1px #fff inset;
@@ -196,9 +245,11 @@ animation: splash 2s;
 
 /*КОНЕЦ стили кнопок*/
 
-
-
-/* .table {border:1px solid black;  } */
-/* tr{border:1px solid black;} */
+/* убрал серую полоску над секцией выбора элемента */
+#ElementModal .JS_Section-Table tr:first-child td {
+	border-top: 0px solid #dee2e6;
+	padding: .75rem;
+	vertical-align: top;
+}
 
 /*стили всплывающего окна*/

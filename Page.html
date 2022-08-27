@@ -7,9 +7,9 @@
 
 		<!-- Bootstrap CSS -->
 		<!--<link rel="stylesheet" href="https://calculatorfs.ru/css/bootstrap.min.css">-->
-		<link rel="stylesheet" href="../bootstrap.min.css">
-		<link rel="stylesheet" href="style.css?version=4">
-		<link rel="stylesheet" href="style-calc.css?version=4">
+		<link rel="stylesheet" href="../Libraries/bootstrap.min.css">
+		<link rel="stylesheet" href="../../Site/style.css?version=5">
+		<link rel="stylesheet" href="style-calc.css?version=8">
 
 	</head>
 	<body>
@@ -18,94 +18,138 @@
      <div class="modal-dialog" role="document">
          <div class="modal-content JS_Section-Modal bg-ccc rounded" ><!--modal content-->
 			<div class="mod-header">
-				<div class="JS_Section active" id="header_title">
-					<div class="header-box text-center">
+				<div class="header-box JS_Section active" id="header_title">
+					<div class="header-box-title">
 						<output class="headeroutput-title">Прыжок</output>
 					</div>
-					<table class="table">
-						<tr>
-							<td>
-								<output class="headeroutput-name float-left"></output>
-								<output class="headeroutput-scores float-right">0.00</output>
-							</td>
-						</tr>
-					</table>
+					<div class="header-box-body_output">
+						<output class="headeroutput-name"></output>
+						<output class="headeroutput-scores">0.00</output>
+					</div>
 				</div><!--end section with title-->
 				<!--rotations-->
-				<div class="JS_Section" id="rotations">
-					<div class="header-box text-center">
+				<div class="header-box JS_Section" id="rotations">
+					<div class="header-box-title">
 						Обороты
 					</div>
-					<table class="table">
-						<tr>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="1"></td>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="2"></td>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="3"></td>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="4"></td>
-						</tr>
-					</table>
+					<div class="header-box-body">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="1">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="2">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="3">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="4">
+					</div>
 				</div><!--edn rotations-->
 				<!--jumps-->
-				<div class="JS_Section" id="jumps">
-					<div class="header-box text-center">
+				<div class="header-box JS_Section" id="jumps">
+					<div class="header-box-title">
 						Прыжки
 					</div>
-					<table class="table">
-						<tr>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="A"></td>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="T"></td>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="S"></td>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="Lo"></td>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="F"></td>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="Lz"></td>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" disabled value="Eu"></td>
-						</tr>
-					</table>
+					<div class="header-box-body">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="A">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="T">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="S">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="Lo">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="F">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="Lz">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" disabled value="Eu">
+					</div>
 				</div><!--end jumps-->
 				<!--=======================levels========================-->
-				<div class="JS_Section" id="levels">
-					<div class="header-box text-center">
+				<div class="header-box JS_Section" id="levels">
+					<div class="header-box-title">
 						Уровни
 					</div>
-					<table class="table">
-						<tr>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="B"></td>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="1"></td>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="2"></td>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="3"></td>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="4"></td>
-						</tr>
-					</table>
+					<div class="header-box-body">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="B">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="1">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="2">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="3">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="4">
+					</div>
 				</div><!--edn levels-->
 				<!--=======================spins========================-->
-				<div class="JS_Section" id="spins">
-					<div class="header-box text-center">
+				<div class="header-box JS_Section" id="spins">
+					<div class="header-box-title">
 						Вращения
 					</div>
-					<table class="table">
-						<tr>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="USp"></td>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="CSp"></td>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="SSp"></td>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="CoSp"></td>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="LSp"></td>
-						</tr>
-					</table>
+					<div class="header-box-body">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="USp">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="CSp">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="SSp">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="CoSp">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="LSp">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="PSp">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="PCoSp">
+					</div>
 				</div><!--edn spins-->
 				<!--=======================steps========================-->
-				<div class="JS_Section " id="steps">
-					<div class="header-box text-center">
+				<div class="header-box JS_Section " id="steps">
+					<div class="header-box-title">
 						Дорожки
 					</div>
-					<table class="table">
-						<tr>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="StSq"></td>
-							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="ChSq"></td>
-						</tr>
-					</table>
+					<div class="header-box-body">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="StSq">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="ChSq">
+					</div>
 				</div><!--edn steps-->
-
+				<!--=======================lifts========================-->
+				<div class="header-box JS_Section" id="lifts">
+					<div class="header-box-title">
+						Поддержки
+					</div>
+					<div class="header-box-body">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="1Li">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="2Li">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="3Li">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="4Li">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="5SLi">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="5TLi">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="5BLi">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="5ALi">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="5RLi">
+					</div>
+				</div><!--edn lifts-->
+				<!--=======================twists========================-->
+				<div class="header-box JS_Section " id="twists">
+					<div class="header-box-title">
+						Подкрутки
+					</div>
+					<div class="header-box-body">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="1Tw">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="2Tw">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="3Tw">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="4Tw">
+					</div>
+				</div><!--edn twists-->
+				<!--=======================throwjumps========================-->
+				<div class="header-box JS_Section " id="throwjumps">
+					<div class="header-box-title">
+						Выбросы
+					</div>
+					<div class="header-box-body">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="ATh">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="TTh">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="STh">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="LoTh">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="FTh">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="LzTh">
+					</div>
+				</div><!--edn throwjumps-->
+				<!--=======================deathspirals========================-->
+				<div class="header-box JS_Section " id="deathspirals">
+					<div class="header-box-title">
+						Тодесы
+					</div>
+					<div class="header-box-body">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="BiDs">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="FiDs">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="BoDs">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="FoDs">
+						<input type="button" class="JS_ButtonModal buttonGuideBasic" value="PiF">
+					</div>
+				</div><!--end deathspirals-->
 			</div><!--end header-->
+
 			<div class="mod-body JS_Section-Tables tabCalc-wrap">
 						<div class="wrap-tables">
 							<!--========================step========================-->
@@ -124,10 +168,10 @@
 									<tr class="JS_Section-El active splash">
 										<td ><input type="button" class="JS_Button JS_Fly   buttonFlat" value="F"></td>
 										<td><input type="button" class="JS_Button JS_ChangeLeg   buttonFlat" value="C"></td>
-										<td ><input type="button" class="JS_Button JS_Name  buttonFlat" name="spins" value="элемент"></td>
+										<td><input type="button" class="JS_Button JS_Name  buttonFlat" name="spins" value="элемент"></td>
 										<td><input type="button" class="JS_Button JS_Level   buttonFlat" name="levels" value="B"></td>
 										<td><input type="button" class="JS_Button JS_V   buttonFlat" disabled value="V"></td>
-										<td ><output class="lineoutput-scores">0.00</output></td>
+										<td><output class="lineoutput-scores">0.00</output></td>
 									</tr>
 								</table><!--end table spin-->
 							</div>
@@ -192,16 +236,74 @@
 
 								</table><!--end table jumps-->
 							</div>
+							<!--========================lifts========================-->
+							<div class="tabCalc-content">
+								<table class="table JS_Section-Table">
+									<tr class="JS_Section-El active splash">
+										<td ><input type="button" class="JS_Button JS_Name  buttonFlat" name="lifts" value="элемент"></td>
+										<td><input type="button" class="JS_Button JS_Level  buttonFlat" name="levels" value="B"></td>
+										<td ><output class="lineoutput-scores">0.00</output></td>
+									</tr>
+								</table><!--end table lifts-->
+							</div>
+							<!--============================end lifts=====================================-->
+							<!--========================twists========================-->
+							<div class="tabCalc-content">
+								<table class="table JS_Section-Table">
+									<tr class="JS_Section-El active splash">
+										<td ><input type="button" class="JS_Button JS_Name  buttonFlat" name="twists" value="элемент"></td>
+										<td><input type="button" class="JS_Button JS_Level  buttonFlat" name="levels" value="B"></td>
+										<td>
+											<input type="button" class="JS_Button JS_Galka  buttonFlat buttonGalka" value="<<">
+										</td>
+										<td ><output class="lineoutput-scores">0.00</output></td>
+									</tr>
+								</table><!--end table twists-->
+							</div>
+							<!--============================end twists=====================================-->
+							<!--========================throwjumps========================-->
+							<div class="tabCalc-content">
+								<table class="table JS_Section-Table">
+									<tr class="JS_Section-El active splash">
+										<td><input type="button" class="JS_Button JS_Rotation  buttonFlat" name="rotations" value="1"></td>
+										<td ><input type="button" class="JS_Button JS_Name  buttonFlat" name="throwjumps" value="элемент"></td>
+										<td>
+											<input type="button" class="JS_Button JS_Galka  buttonFlat buttonGalka" value="q">
+											<input type="button" class="JS_Button JS_Galka  buttonFlat buttonGalka" value="<">
+											<input type="button" class="JS_Button JS_Galka  buttonFlat buttonGalka" value="<<">
+										</td>
+										<td ><output class="lineoutput-scores">0.00</output></td>
+									</tr>
+								</table><!--end table twists-->
+							</div>
+							<!--============================end throwjumps=====================================-->
+							<!--========================deathspirals========================-->
+							<div class="tabCalc-content">
+								<table class="table JS_Section-Table">
+									<tr class="JS_Section-El active splash">
+										<td ><input type="button" class="JS_Button JS_Name  buttonFlat" name="deathspirals" value="элемент"></td>
+										<td><input type="button" class="JS_Button JS_Level  buttonFlat" name="levels" value="B"></td>
+										<td ><output class="lineoutput-scores">0.00</output></td>
+									</tr>
+								</table><!--end table twists-->
+							</div>
+							<!--============================end deathspirals=====================================-->
 						</div><!-- end wrap-tables-->
-						<div class="tabCalc-links">
+
+						<div class="tabCalc-links JS_DragScroll">
 							<button class="tabCalc-link" value="Дорожка">Дорожка</button>
-							<button class="tabCalc-link" value="Вращение">Вращение</button>
+							<button class="tabCalc-link coolTabLeft" value="Вращение">Вращение</button>
 							<button class="tabCalc-link active" value="Прыжок">Прыжок</button>
+							<button class="tabCalc-link coolTabRight" value="Поддержка">Поддержка</button>
+							<button class="tabCalc-link" value="Подкрутка">Подкрутка</button>
+							<button class="tabCalc-link" value="Выброс">Выброс</button>
+							<button class="tabCalc-link" value="Тодес">Тодес</button>
 						</div>
+
 			</div><!--end mod-body-->
 			<div class="modal-footer">
-				<button class="JS_Reset buttonFlat">Сброс</button>
-				<button class="JS_Save buttonFlat">Сохранить</button>
+				<button class="JS_Reset buttonFlat buttonReset">Сброс</button>
+				<button class="JS_Save buttonFlat buttonSave">Сохранить</button>
 			</div>
 
          </div><!--end content-->
@@ -214,7 +316,7 @@
 		<div class="modal-content bg-ccc rounded"><!--контент-->
 			<div class="mod-header">
 				<div class="JS_Section" id="goe">
-	                <div class="header-box text-center">
+	                <div class="header-box-title">
 	                    GOE
 	                </div>
 					<table class="table">
@@ -239,7 +341,7 @@
 						</tbody>
 					</table>
 				</div>
-			</div><!--КОНЕЦ хидер-->
+			</div><!--КОНЕЦ class="mod-header"-->
 			<div class="modal-footer">
 				<button  class="buttonClose buttonFlat" data-dismiss="modal">Закрыть</button>
 			</div>
@@ -247,9 +349,9 @@
 	</div>
 </div><!--КОНЕЦ Modal GOE -->
 
-		<main class="row"><!-- ряд (основной)-->
-			<div class="col-lg-10 offset-lg-1"><!--первая колонка (калькулятор)-->
-				<div class="item-page bg-white">
+		<!--<main class="row"> ряд (основной)-->
+			<!--<div class="col-lg-10 offset-lg-1">первая колонка (калькулятор)-->
+				<!-- <div class="item-page bg-white"> -->
 
 				<table class="table  JS_Section-Table" id="MainTable"><!--таблица calc-->
 					<thead class="bg-violet">
@@ -350,57 +452,20 @@
 					<tr>
 						<td colspan="4" class="pl-0">	<button class="JS_Reset buttonFlat float-left">Сброс</button></td>
 						<td><output class="tableoutput-scores">0.00</output></td>
-
 					</tr>
 				</table>
 
-
-<div class="row review">
-	<div class="col-12">
-		<h2>Больше интересных статей</h2>
-
-	</div>
-	<div class="col-12 col-md-4" style="transform: rotate(0);">
-    <div class="box_review">
-        <img src="../images/introSportsCategorii.jpg" />
-        <div class="text">
-            <a class="stretched-link" href="/rules-fs/elementi-programmi" title="Юношеские и спортивные разряды в фигурном катании - требования и нормативы">
-            Юношеские и спортивные разряды в фигурном катании - требования и нормативы
-            </a>
-        </div>
-	</div>
-    </div>
-<!--2-->
-<div class="col-12 col-md-4" style="transform: rotate(0);">
-    <div class="box_review">
-        <img src="../images/introComponenti.jpg"/>
-        <div class="body">
-            <a class="stretched-link" href="/rules-fs/componenti-programmi">
-            Компоненты в фигурном катании
-            </a>
-        </div>
-    </div>
-</div>
-
-<!--3-->
-<div class="col-12 col-md-4" style="transform: rotate(0);">
-    <div class="box_review">
-        <img src="../images/introLevelDificalt.jpg"/>
-        <div class="body"><a class="stretched-link" href="/rules-fs/yrovni-sloznosti">Уровни вращений и дорожек в фигурном катании	</a></div>
-    </div>
-</div>
-</div>
-
-				</div> <!--page-item-->
-			</div><!--END первая колонка (калькулятор)-->
-		</main><!--END ряд (основной)-->
-<script src="../jquery-3.3.1.slim.min.js"></script>
-<script src="../bootstrap.min.js"></script>
-<!--		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+				<!-- </div>  -->
+				<!--page-item-->
+			<!-- </div> -->
+			<!--END первая колонка (калькулятор)-->
+		<!-- </main> -->
+		<!--END ряд (основной)-->
+<script src="../Libraries/jquery-3.3.1.slim.min.js"></script>
+<script src="../Libraries/bootstrap.min.js"></script>
 		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
-		<!--<script src="https://calculatorfs.ru/js/bootstrap.min.js?version=3"></script>-->
 
-<!-- <script src="calculatorV4-1.js?version=2"></script> -->
+<!-- <script src="calculator.js?version=2"></script> -->
 		<script src="Director.js?version=4"></script>
 		<script src="classoflineobject.js?version=5"></script>
 		<script src="ModalWork.js?version=9"></script>
@@ -408,5 +473,7 @@
 		<script src="Compiling.js?version=3"></script>
 		<script src="MainCalc.js?version=4"></script>
 		<script src="Set.js"></script>
-		<script src="listofvalue.js?version=2"></script>
-</body>
+<script src="listofvalue.js?version=2"></script>
+<script src="../../Site/index.js"></script>
+<!-- <script src="../../Site/index.min.js"></script> -->
+ </body>

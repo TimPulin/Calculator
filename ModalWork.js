@@ -1,4 +1,4 @@
-// ModalWorkV3.js
+// ==========================ModalWorkV3.js
 //==================вызов и закрытие модального окна======================
 jQuery(document).ready(function() {
     let Iam;
@@ -30,10 +30,12 @@ jQuery(document).ready(function() {
 //===========================ПОВЕДЕНИЕ КНОПОК=========================================
 
 //========================Переключение вкладок в модальном окне==
+jQuery(document).ready(function() {
     jQuery('.tabCalc-link').click(function() {
         SwitchTabsInModal(jQuery(this) );
     })
-//========================КОНЕЦ Переключение вкладок в модальном окне==
+}) //========================КОНЕЦ Переключение вкладок в модальном окне==
+
 
 //====================вызов экрана для выбора значения атрибута элемента==========
 jQuery(document).ready(function() {
@@ -163,10 +165,10 @@ jQuery(document).ready(function() {
 //======================Блокировка/Разблокировка кнопок==================================================
 jQuery(document).ready(function () {
 
-    //==блокировка/разблокировка кнопки "E"
+    //==блокировка/разблокировка кнопки "E", "!"
     jQuery(document).ready(function() {
-        let section;
-        let button;
+        let section,
+            button;
 
         jQuery('.JS_Name').click(function() {
             section = jQuery(this).closest('.JS_Section-El');
@@ -179,9 +181,61 @@ jQuery(document).ready(function () {
             button.removeClass('active activeColor');
             button.prop('disabled', true);
         })
-    }) //==КОНЕЦ блокировка/разблокировка кнопки "E"
+    }) //==КОНЕЦ блокировка/разблокировка кнопки "E","!"
 
-    jQuery(document).ready(function(){
+    //блокировка кнопки "V", "F", "C",
+    jQuery(document).ready(function() {
+        const BUTTON_CoSp = jQuery('#spins .JS_ButtonModal[value="CoSp"]');
+        const BUTTON_PCoSp = jQuery('#spins .JS_ButtonModal[value="PCoSp"]');
+        const BUTTON_PSp = jQuery('#spins .JS_ButtonModal[value="PSp"]');
+        const BUTTON_Fly = jQuery('#ElementModal .JS_Fly');
+        const BUTTON_ChangeLeg = jQuery('#ElementModal .JS_ChangeLeg');
+        const BUTTON_V = jQuery('#ElementModal .JS_V');
+        let button;
+
+        BUTTON_PSp.click(function() {
+            [BUTTON_Fly, BUTTON_ChangeLeg, BUTTON_V].map(function(item) {
+                item.prop('disabled', true);
+                item.removeClass('active activeColor');
+            })
+        })
+
+        BUTTON_PCoSp.click(function() {
+            [BUTTON_Fly, BUTTON_ChangeLeg].map(function(item) {
+                item.prop('disabled', true);
+                item.removeClass('active activeColor');
+            })
+            BUTTON_V.prop('disabled', false)
+        })
+
+        jQuery('#spins .JS_ButtonModal').not(BUTTON_PSp).not(BUTTON_PCoSp).click(function() {
+            [BUTTON_Fly, BUTTON_ChangeLeg].map(function(item) {
+                item.prop('disabled', false);
+            })
+        })
+
+         BUTTON_CoSp.click(function() {
+            BUTTON_V.prop('disabled', false);
+        })
+
+        jQuery('#spins .JS_ButtonModal').not(BUTTON_PCoSp).not(BUTTON_CoSp).click(function() {
+            if( !BUTTON_Fly.hasClass('active') && !BUTTON_ChangeLeg.hasClass('active') ) {
+                BUTTON_V.prop('disabled', true);
+                BUTTON_V.removeClass('active activeColor');
+            }
+        })
+
+        jQuery('#ElementModal .JS_Fly, #ElementModal .JS_ChangeLeg').click(function() {
+            button = jQuery(this).closest('.JS_Section-El').find('.JS_Name');
+            if(BUTTON_Fly.hasClass('active') || BUTTON_ChangeLeg.hasClass('active') || button.val() == 'CoSp' ) {
+                BUTTON_V.prop('disabled', false);
+            } else {
+                BUTTON_V.prop('disabled', true);
+            }
+        })
+    }) //КОНЕЦ блокировка кнопки "V", "F", "C"
+
+    jQuery(document).ready(function() {
         let amount, //переменная используется для кнопок "добавить/удалить прыжок" и кнопки "Eu"
             Index_ActiveSection;
         const BTN_AddJump = jQuery('#ElementModal .JS_AddJump');
@@ -220,18 +274,6 @@ jQuery(document).ready(function () {
                LockBTN_AddJump();
                 BTN_RemoveJump.prop('disabled', false);
             })
-
-             //блокировка/разблокировка кнопки "добавить прыжок" в зависимости от кнопки "A"
-             // BUTTON_A.click(function() {
-             //     if(Index_ActiveSection == 1) {
-             //         if(amount == 3) {
-             //             BTN_RemoveJump.trigger('click');
-             //         }
-             //         LockBTN_AddJump();
-             //     }else {
-             //         UnlockBTN_AddJump();
-             //    }
-             //}) //КОНЕЦ блокировка/разблокировка кнопки "добавить прыжок" в зависимости от кнопки "A"
 
             function CheckAmountLinesHide() {
                 amount = jQuery(Iam).closest('.JS_Section-Table').find('.JS_Section-El.active').length;
@@ -299,22 +341,23 @@ jQuery(document).ready(function () {
                 }
             }) //КОНЕЦ блокировка/разблокировка кнопки "JS_Rotation"
 
-            //блокировка/разблокировка кнопки "JS_Level" в зависимости от кнопки "StSq"
-            BUTTON_CHSQ.click(function() {
-                BUTTON_STEPLEVEL.prop('disabled', true);
-            })
-            jQuery('#steps .JS_ButtonModal[value="StSq"]').click(function() {
-                 BUTTON_STEPLEVEL.prop('disabled', false);
-            }) //КОНЕЦ блокировка/разблокировка кнопки "JS_Level" в зависимости от кнопки "StSq"
+            //блокировка/разблокировка кнопки "JS_Level"
+            jQuery(document).ready(function() {
+                let button;
 
-            //блокировка кнопки "V"
-            jQuery('#ElementModal .JS_Fly, #ElementModal .JS_ChangeLeg').click(function() {
-                if(jQuery('#ElementModal  .JS_Fly').hasClass('active') || jQuery('#ElementModal .JS_ChangeLeg').hasClass('active')){
-                    jQuery('#ElementModal .JS_V').prop('disabled', false);
-                } else {
-                     jQuery('#ElementModal .JS_V').prop('disabled', true);
-                }
-            }) //КОНЕЦ блокировка кнопки "V"
+                jQuery('.JS_Name').click(function() {
+                    button = jQuery(this).closest('.JS_Section-El').find('.JS_Level');
+                })
+
+                jQuery('.JS_ButtonModal[value="ChSq"], .JS_ButtonModal[value="PiF"]').click(function() {
+                    button.prop('disabled', true);
+                })
+
+                jQuery('.JS_ButtonModal[value="StSq"], #deathspirals .JS_ButtonModal:not(.JS_ButtonModal[value="PiF"]) ').click(function() {
+                    button.prop('disabled', false);
+                })
+            }) //==КОНЕЦ блокировка/разблокировка кнопки "JS_Level"
+
         }) //====================КОНЕЦ блокировка/разблокировка кнопок в секции "прыжки"===========
     })
 }) //======================КОНЕЦ Блокировка/Разблокировка кнопок===================================
