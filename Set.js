@@ -22,6 +22,7 @@ jQuery(document).ready(function() {
             SECTIONTABLES.each(function() {
                 jQuery(this).find('.JS_Section-El:first').addClass('splash');
             })
+            durationOfClickTabLink = 0;
             SwitchTabsInModal(TABLINKS.eq(2) );
         }
     }
@@ -32,6 +33,7 @@ jQuery(document).ready(function() {
 
     function SetActiveTab() {
         IndexT = arrActiveTabs[keyOfElement];
+        durationOfClickTabLink = 0;
         SwitchTabsInModal(TABLINKS.eq(IndexT) );
     }
 
