@@ -7,8 +7,8 @@
 
 		<!-- Bootstrap CSS -->
 		<!--<link rel="stylesheet" href="https://calculatorfs.ru/css/bootstrap.min.css">-->
-		<link rel="stylesheet" href="../bootstrap.min.css">
-		<link rel="stylesheet" href="style.css?version=5">
+		<link rel="stylesheet" href="../Libraries/bootstrap.min.css">
+		<link rel="stylesheet" href="../../Site/style.css?version=5">
 		<link rel="stylesheet" href="style-calc.css?version=8">
 
 	</head>
@@ -290,8 +290,8 @@
 							<!--============================end deathspirals=====================================-->
 						</div><!-- end wrap-tables-->
 						<div class="gallery-container">
-							<button class="gallery-arrow JS_Gallery-ControlButton" data-direction="left">&#9664;</button>
-							<div class="tabCalc-links JS_Gallery-Window">
+							<!-- <button class="gallery-arrow JS_Gallery-ControlButton" data-direction="left">&#9664;</button> -->
+							<div class="tabCalc-links JS_Gallery-Window JS_DragScroll">
 								<button class="tabCalc-link JS_Gallery-Item" value="Дорожка">Дорожка</button>
 								<button class="tabCalc-link JS_Gallery-Item coolTabLeft" value="Вращение">Вращение</button>
 								<button class="tabCalc-link JS_Gallery-Item active" value="Прыжок">Прыжок</button>
@@ -300,7 +300,7 @@
 								<button class="tabCalc-link JS_Gallery-Item" value="Выброс">Выброс</button>
 								<button class="tabCalc-link JS_Gallery-Item" value="Тодес">Тодес</button>
 							</div>
-							<button class="gallery-arrow JS_Gallery-ControlButton" data-direction="right">&#9654;</button>
+							<!-- <button class="gallery-arrow JS_Gallery-ControlButton" data-direction="right">&#9654;</button> -->
 						</div>
 			</div><!--end mod-body-->
 			<div class="modal-footer">
@@ -343,7 +343,7 @@
 						</tbody>
 					</table>
 				</div>
-			</div><!--КОНЕЦ хидер-->
+			</div><!--КОНЕЦ class="mod-header"-->
 			<div class="modal-footer">
 				<button  class="buttonClose buttonFlat" data-dismiss="modal">Закрыть</button>
 			</div>
@@ -457,51 +457,15 @@
 					</tr>
 				</table>
 
-
-<div class="row review">
-	<div class="col-12">
-		<h2>Больше интересных статей</h2>
-
-	</div>
-	<div class="col-12 col-md-4" style="transform: rotate(0);">
-    <div class="box_review">
-        <img src="../images/introSportsCategorii.jpg" />
-        <div class="text">
-            <a class="stretched-link" href="/rules-fs/elementi-programmi" >
-            Юношеские и спортивные разряды в фигурном катании - требования и нормативы
-            </a>
-        </div>
-	</div>
-    </div>
-<!--2-->
-<div class="col-12 col-md-4" style="transform: rotate(0);">
-    <div class="box_review">
-        <img src="../images/introComponenti.jpg"/>
-        <div class="body">
-            <a class="stretched-link" href="/rules-fs/componenti-programmi">
-            Компоненты в фигурном катании
-            </a>
-        </div>
-    </div>
-</div>
-
-<!--3-->
-<div class="col-12 col-md-4" style="transform: rotate(0);">
-    <div class="box_review">
-        <img src="../images/introLevelDificalt.jpg"/>
-        <div class="body"><a class="stretched-link" href="/rules-fs/yrovni-sloznosti">Уровни вращений и дорожек в фигурном катании	</a></div>
-    </div>
-</div>
-</div>
-
-				</div> <!--page-item-->
-			</div><!--END первая колонка (калькулятор)-->
-		</main><!--END ряд (основной)-->
-<script src="../jquery-3.3.1.slim.min.js"></script>
-<script src="../bootstrap.min.js"></script>
-<!--		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+				<!-- </div>  -->
+				<!--page-item-->
+			<!-- </div> -->
+			<!--END первая колонка (калькулятор)-->
+		<!-- </main> -->
+		<!--END ряд (основной)-->
+<script src="../Libraries/jquery-3.3.1.slim.min.js"></script>
+<script src="../Libraries/bootstrap.min.js"></script>
 		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
-		<!--<script src="https://calculatorfs.ru/js/bootstrap.min.js?version=3"></script>-->
 
 <script src="calculator.js?version=2"></script>
 		<!-- <script src="Director.js?version=4"></script>
@@ -513,4 +477,5 @@
 		<script src="Set.js"></script>
 		<script src="GalleryControl.js"></script> -->
 		<script src="listofvalue.js?version=2"></script>
+		<script src="../../Site/index.min.js" charset="utf-8"></script>
  </body>
