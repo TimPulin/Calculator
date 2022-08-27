@@ -1,17 +1,18 @@
 jQuery(document).ready(function () {
-    // ==============================Director.js
+    // Director.js
     //======================ГЛОБАЛЬНЫЕ служебные функции======================
 
     let ID,
         INDEX_ActiveTab,
-        keyOfElement;
+        keyOfElement,
+        durationOfClickTabLink = 0;
 
-    let arrActiveTabs = {};
-    let arrButtonsClass = {};
-    let arrButtonsVal = {};
-    let arrLinesClass = {};
-    let arrButtonsAbility = {};
-    let arrOutputs = {};
+    let arrActiveTabs = {},
+        arrButtonsClass = {},
+        arrButtonsVal = {},
+        arrLinesClass = {},
+        arrButtonsAbility = {},
+        arrOutputs = {};
 
     jQuery(document).ready(function () {
         jQuery('.JS_Section-Table').find('.boxoutput-name, .JS_Goe, .JS_X').click(function() {
@@ -69,6 +70,23 @@ jQuery(document).ready(function () {
         Iam.closest('.JS_Section-Modal').find('.mod-header .JS_Section.active').removeClass('active');
     }
 
+    jQuery(document).ready(function() {
+        const BOX = jQuery('#ElementModal .JS_DragScroll');
+        let startClick = 0,
+            currentDate = () => Date.now();
+
+        BOX.mousedown(function() {
+            GetDurationClick()
+        })
+
+        function GetDurationClick() {
+            startClick = currentDate();
+            BOX.mouseup(function() {
+                durationOfClickTabLink = currentDate() - startClick;
+            })
+        }
+    })
+
     function SwitchTabsInModal(Iam) {
             let Index,
                 Title_Modal,
@@ -76,13 +94,15 @@ jQuery(document).ready(function () {
 
             Index = Iam.closest('.tabCalc-links').find('.tabCalc-link').index(Iam);
             Title_Modal = Iam.val();
-            AddRemove_Active();
-            RenderingCoolTab(Iam);
-            ResetModal(Iam);
-            ShowHide_tabel ();
-            ShowHeader();
-            Print_Title_Modal();
 
+            if (durationOfClickTabLink < 500) {
+                AddRemove_Active();
+                RenderingCoolTab(Iam);
+                ResetModal(Iam);
+                ShowHide_tabel ();
+                ShowHeader();
+                Print_Title_Modal();
+            }
 
         function AddRemove_Active() {
             section('.tabCalc-links').find('.tabCalc-link.active').removeClass('active');
@@ -195,7 +215,7 @@ jQuery(document).ready(function () {
             currentObject.halfPartBonus = 1;
             currentObject.index_active_tab = 0;
     }
-    // =========================END Director.js
+    // END Director.js
 
     // ===============================classoflineobject.js
     class Element {
@@ -1004,161 +1024,68 @@ jQuery(document).ready(function() {
 // ================END MainCalc.js
 
 
-// ====================Set.js
-jQuery(document).ready(function() {
-
-      let IndexT;
-    const TABLINKS = jQuery('#ElementModal .tabCalc-links .tabCalc-link'),
-          SECTIONTABLES = jQuery('#ElementModal .JS_Section-Tables .JS_Section-Table');
-
-    jQuery('.boxoutput-name').click(function() {
-        DirectorSetConfig();
-    })
-
-
-    function DirectorSetConfig() {
-        if(CheckAvailabilityInfo() ) {
-            SetActiveTab();
-            SetLines();
-            SetButtons();
-            SetOutputs();
-        }
-        else {
-            jQuery('.JS_AddJump').removeClass('splash');
-            SECTIONTABLES.each(function() {
-                jQuery(this).find('.JS_Section-El:first').addClass('splash');
-            })
-            SwitchTabsInModal(TABLINKS.eq(2) );
-        }
-    }
-
-    function CheckAvailabilityInfo() {
-        return arrActiveTabs[keyOfElement] == undefined ? false : true;
-    }
-
-    function SetActiveTab() {
-        IndexT = arrActiveTabs[keyOfElement];
-        SwitchTabsInModal(TABLINKS.eq(IndexT) );
-    }
-
-    function SetLines() {
-        SECTIONTABLES.eq(IndexT).find('.JS_Section-El').each(function(index) {
-            jQuery(this).addClass(arrLinesClass[keyOfElement][index]);
-        })
-        SECTIONTABLES.eq(IndexT).find('.JS_Section-El:first').removeClass('splash');
-    }
-
-    function SetButtons() {
-        SECTIONTABLES.eq(IndexT).find('.JS_Button, .JS_RemoveJump, .JS_AddJump').each(function(index) {
-            jQuery(this).addClass(arrButtonsClass[keyOfElement][index]);
-            jQuery(this).val(arrButtonsVal[keyOfElement][index]);
-            jQuery(this).prop('disabled', arrButtonsAbility[keyOfElement][index]);
-        })
-    }
-
-    function SetOutputs() {
-        jQuery('#ElementModal').find('.headeroutput-name, .headeroutput-scores, .lineoutput-scores').each(function(index) {
-            jQuery(this).text(arrOutputs[keyOfElement][index]);
-        })
-    }
-})
-// ==================END Set.js
-
-
-// =========================GalleryControl.js
-jQuery(document).ready(function() {
-    let colorActve = '#ea84ff',
-        colorRegular = '#f3f4f8';
-
-    // изменение цвета кнопок прокрутки
+    // ====================Set.js
     jQuery(document).ready(function() {
-        jQuery('.JS_Gallery-ControlButton').on('touchstart mousedown', function() {
-            jQuery(this).css('background-color', colorActve);
+
+          let IndexT;
+        const TABLINKS = jQuery('#ElementModal .tabCalc-links .tabCalc-link'),
+              SECTIONTABLES = jQuery('#ElementModal .JS_Section-Tables .JS_Section-Table');
+
+        jQuery('.boxoutput-name').click(function() {
+            DirectorSetConfig();
         })
-        jQuery('.JS_Gallery-ControlButton').on('touchend mouseup', function() {
-            jQuery(this).css('background-color', colorRegular);
-        })
-    })    // END изменение цвета кнопок прокрутки
 
-    jQuery(document).ready(function() {
-        const GALLERY_ITEMS = jQuery('.JS_Gallery-Item');
 
-        let jq_items_currentCoords = [],
-            index_min,                  //присваивается в makeRating()
-            index_max,
-            coord_min,
-            coord_max,
-            v_item_width = item => item.outerWidth(),
-            round = coords => parseFloat(coords.toFixed(2) ),
-            direction = that => that.attr('data-direction'),
-            step = index => v_item_width( GALLERY_ITEMS.eq(index) ),
-            stepLeft_around = () => jq_items_currentCoords[index_max] - step(index_min) + step(index_max),
-            stepRight_around = () => coord_min;
-
-        jQuery('.JS_Gallery-ControlButton').click(function() {
-            let that = jQuery(this);
-            getCoordsCurrent();
-            makeRating(jq_items_currentCoords);
-
-            if(direction(that) == 'right') {
-                letsMoveIt(index_max, stepRight_around(), 1 );
+        function DirectorSetConfig() {
+            if(CheckAvailabilityInfo() ) {
+                SetActiveTab();
+                SetLines();
+                SetButtons();
+                SetOutputs();
             }
             else {
-                letsMoveIt(index_min, stepLeft_around(), -1 );
+                jQuery('.JS_AddJump').removeClass('splash');
+                SECTIONTABLES.each(function() {
+                    jQuery(this).find('.JS_Section-El:first').addClass('splash');
+                })
+                durationOfClickTabLink = 0;
+                SwitchTabsInModal(TABLINKS.eq(2) );
             }
-        })
-
-        function getCoordsCurrent() {
-            GALLERY_ITEMS.each(function(index) {
-                jq_items_currentCoords.push( round( jQuery(this).offset().left) );
-            })
-        } //END getCoordsCurrent()
-
-        function letsMoveIt(index_key, step_around, direction) {
-            GALLERY_ITEMS.each(function(index) {
-                if(index == index_key) {
-                    jQuery(this).offset( {left: step_around} );
-                }
-                else {
-                      jQuery(this).offset( {left:jq_items_currentCoords[index] + direction * step(index_key)} )
-                }
-            })
-            reset_jq_items_currentCoords();
-        } //END letsMoveIt()
-
-        function removeOpacity0(item) {
-            item.removeClass('opacity')
         }
 
-        function reset_jq_items_currentCoords() {
-            jq_items_currentCoords.splice(0, jq_items_currentCoords.length);
-        }//END reset_jq_items_currentCoords()
+        function CheckAvailabilityInfo() {
+            return arrActiveTabs[keyOfElement] == undefined ? false : true;
+        }
 
-        function makeRating(arr) {
-            let rating = {
-                max: arr[0],
-                min: arr[0],
-                indexMax: 0,
-                indexMin: 0
-            }
+        function SetActiveTab() {
+            IndexT = arrActiveTabs[keyOfElement];
+            durationOfClickTabLink = 0;
+            SwitchTabsInModal(TABLINKS.eq(IndexT) );
+        }
 
-            for(let i = 0; i < arr.length; ++i) {
-                if(arr[i] > rating.max) {
-                    rating.max = arr[i];
-                    rating.indexMax = i;
-                }
-                else if(arr[i] < rating.min) {
-                    rating.min = arr[i];
-                    rating.indexMin = i
-                }
-            }
-            index_min = rating.indexMin;
-            index_max = rating.indexMax;
-            coord_min = rating.min;
-            coord_max = rating.max;
-        } //END makeRating()
+        function SetLines() {
+            SECTIONTABLES.eq(IndexT).find('.JS_Section-El').each(function(index) {
+                jQuery(this).addClass(arrLinesClass[keyOfElement][index]);
+            })
+            SECTIONTABLES.eq(IndexT).find('.JS_Section-El:first').removeClass('splash');
+        }
 
-    }) //END прокрутка закладок
-}) // ===========END GalleryControl.js
+        function SetButtons() {
+            SECTIONTABLES.eq(IndexT).find('.JS_Button, .JS_RemoveJump, .JS_AddJump').each(function(index) {
+                jQuery(this).addClass(arrButtonsClass[keyOfElement][index]);
+                jQuery(this).val(arrButtonsVal[keyOfElement][index]);
+                jQuery(this).prop('disabled', arrButtonsAbility[keyOfElement][index]);
+            })
+        }
 
-})
+        function SetOutputs() {
+            jQuery('#ElementModal').find('.headeroutput-name, .headeroutput-scores, .lineoutput-scores').each(function(index) {
+                jQuery(this).text(arrOutputs[keyOfElement][index]);
+            })
+        }
+    })
+    // END Set.js
+
+
+
+})//=============END of calculator.js
